@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Politique de confidentialité de WooNotif - Application mobile pour gérer vos commandes WooCommerce">
+    <title>Politique de Confidentialité - WooNotif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        h3 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        strong {
+            color: #2c3e50;
+        }
+        
+        .last-updated {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+        
+        .contact-info {
+            background-color: #e8f5e9;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 30px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .contact-info h3 {
+            color: #2e7d32;
+            margin-top: 0;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .check {
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .cross {
+            color: #f44336;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Politique de Confidentialité - WooNotif</h1>
+        
+        <div class="last-updated">
+            <strong>Dernière mise à jour :</strong> 29 novembre 2024
+        </div>
+        
+        <h2>Introduction</h2>
+        <p>
+            WooNotif ("nous", "notre", "l'application") respecte votre vie privée. Cette politique de confidentialité explique comment nous collectons, utilisons, stockons et protégeons vos informations lorsque vous utilisez notre application mobile.
+        </p>
+        
+        <h2>Informations que nous collectons</h2>
+        
+        <h3>Informations d'authentification</h3>
+        <ul>
+            <li><strong>URL de votre boutique WooCommerce</strong> : Nécessaire pour se connecter à votre API</li>
+            <li><strong>Consumer Key (Clé API)</strong> : Identifiant d'authentification WooCommerce</li>
+            <li><strong>Consumer Secret (Secret API)</strong> : Clé secrète d'authentification WooCommerce</li>
+        </ul>
+        <p>
+            Ces informations sont stockées <strong>uniquement sur votre appareil</strong> dans le stockage local sécurisé de l'application (AsyncStorage).
+        </p>
+        
+        <h3>Données des commandes</h3>
+        <ul>
+            <li>Informations des commandes WooCommerce (numéro, date, client, montant, statut)</li>
+            <li>Ces données sont récupérées depuis votre boutique WooCommerce via l'API REST</li>
+        </ul>
+        
+        <h3>Données techniques</h3>
+        <ul>
+            <li>Permissions de l'appareil (caméra pour scanner les QR codes)</li>
+            <li>Préférences de notification</li>
+            <li>Données de diagnostic anonymes (en cas d'erreurs)</li>
+        </ul>
+        
+        <h2>Comment nous utilisons vos informations</h2>
+        
+        <h3>Utilisation des données</h3>
+        <ul>
+            <li><span class="check">✓</span> <strong>Affichage des commandes</strong> : Pour vous permettre de visualiser vos commandes WooCommerce</li>
+            <li><span class="check">✓</span> <strong>Notifications</strong> : Pour vous alerter des nouvelles commandes (si activé)</li>
+            <li><span class="check">✓</span> <strong>Authentification</strong> : Pour se connecter à votre API WooCommerce de manière sécurisée</li>
+        </ul>
+        
+        <h3>Ce que nous ne faisons PAS</h3>
+        <ul>
+            <li><span class="cross">✗</span> Nous ne collectons PAS vos données en dehors de votre appareil</li>
+            <li><span class="cross">✗</span> Nous ne vendons PAS vos données à des tiers</li>
+            <li><span class="cross">✗</span> Nous n'envoyons PAS vos identifiants à nos serveurs</li>
+            <li><span class="cross">✗</span> Nous n'accédons PAS à votre boutique sans votre autorisation explicite</li>
+        </ul>
+        
+        <h2>Stockage et sécurité</h2>
+        
+        <h3>Stockage local</h3>
+        <p>
+            Toutes vos informations sont stockées <strong>uniquement sur votre appareil</strong> :
+        </p>
+        <ul>
+            <li>Les identifiants API sont chiffrés et stockés localement</li>
+            <li>Aucune donnée n'est synchronisée avec nos serveurs</li>
+            <li>Vous pouvez supprimer toutes les données en désinstallant l'application</li>
+        </ul>
+        
+        <h3>Sécurité</h3>
+        <ul>
+            <li>Connexions HTTPS uniquement (obligatoire)</li>
+            <li>Authentification Basic Auth sécurisée</li>
+            <li>Stockage local chiffré par le système d'exploitation</li>
+            <li>Aucune transmission de données sensibles en clair</li>
+        </ul>
+        
+        <h2>Permissions de l'application</h2>
+        
+        <h3>Caméra</h3>
+        <ul>
+            <li><strong>Usage</strong> : Scanner les QR codes contenant vos clés API WooCommerce</li>
+            <li><strong>Stockage</strong> : Aucune image n'est sauvegardée</li>
+            <li><strong>Accès</strong> : Uniquement lorsque vous activez le scanner QR</li>
+        </ul>
+        
+        <h3>Notifications</h3>
+        <ul>
+            <li><strong>Usage</strong> : Vous alerter des nouvelles commandes</li>
+            <li><strong>Contrôle</strong> : Vous pouvez activer/désactiver à tout moment dans les paramètres</li>
+            <li><strong>Données</strong> : Aucune donnée personnelle n'est incluse dans les notifications</li>
+        </ul>
+        
+        <h3>Internet</h3>
+        <ul>
+            <li><strong>Usage</strong> : Se connecter à votre boutique WooCommerce via l'API REST</li>
+            <li><strong>Sécurité</strong> : Connexions HTTPS uniquement</li>
+        </ul>
+        
+        <h2>Vos droits</h2>
+        <p>Vous avez le droit de :</p>
+        <ul>
+            <li><span class="check">✓</span> Accéder à vos données stockées localement</li>
+            <li><span class="check">✓</span> Supprimer toutes vos données (désinstaller l'application)</li>
+            <li><span class="check">✓</span> Révoquer l'accès à votre boutique à tout moment</li>
+            <li><span class="check">✓</span> Désactiver les notifications</li>
+            <li><span class="check">✓</span> Demander des informations sur vos données</li>
+        </ul>
+        <p>
+            Pour exercer ces droits, vous pouvez :
+        </p>
+        <ul>
+            <li>Supprimer l'application de votre appareil</li>
+            <li>Réinitialiser les données de l'application dans les paramètres système</li>
+            <li>Nous contacter (voir coordonnées ci-dessous)</li>
+        </ul>
+        
+        <h2>Cookies et technologies de suivi</h2>
+        <p>
+            L'application n'utilise pas de cookies ni de technologies de suivi tierces. Toutes les communications se font directement entre votre appareil et votre boutique WooCommerce.
+        </p>
+        
+        <h2>Publicités (Google Ads)</h2>
+        <p>
+            Si vous avez activé les publicités dans l'application :
+        </p>
+        <ul>
+            <li>Google AdMob peut collecter des données anonymes pour personnaliser les publicités</li>
+            <li>Ces données sont gérées selon la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politique de confidentialité de Google</a></li>
+            <li>Vous pouvez désactiver la personnalisation des publicités dans les paramètres de votre appareil</li>
+        </ul>
+        
+        <h2>Partage avec des tiers</h2>
+        <p>
+            Nous ne partageons vos données avec aucun tiers, sauf :
+        </p>
+        <ul>
+            <li><strong>Google AdMob</strong> : Uniquement pour les publicités (données anonymes)</li>
+            <li><strong>Votre boutique WooCommerce</strong> : Directement via l'API REST (données que vous contrôlez)</li>
+        </ul>
+        
+        <h2>Conservation des données</h2>
+        <p>
+            Vos données sont conservées :
+        </p>
+        <ul>
+            <li><strong>Sur votre appareil</strong> : Jusqu'à ce que vous supprimiez l'application ou réinitialisiez les données</li>
+            <li><strong>Aucune donnée</strong> n'est conservée sur nos serveurs (nous n'en avons pas)</li>
+        </ul>
+        
+        <h2>Modifications de cette politique</h2>
+        <p>
+            Nous pouvons mettre à jour cette politique de confidentialité. Les modifications seront signalées par :
+        </p>
+        <ul>
+            <li>Une notification dans l'application</li>
+            <li>Une mise à jour de la date "Dernière mise à jour"</li>
+            <li>Une nouvelle version de l'application</li>
+        </ul>
+        
+        <h2>Conformité légale</h2>
+        <p>
+            Cette application est conforme au :
+        </p>
+        <ul>
+            <li><strong>RGPD</strong> (Règlement Général sur la Protection des Données) - UE</li>
+            <li><strong>CCPA</strong> (California Consumer Privacy Act) - Californie</li>
+            <li><strong>Loi sur la protection des données</strong> - Canada</li>
+        </ul>
+        
+        <div class="contact-info">
+            <h3>Contact</h3>
+            <p>
+                Pour toute question concernant cette politique de confidentialité ou vos données :
+            </p>
+            <p>
+                <strong>Email :</strong> <a href="mailto:[VOTRE_EMAIL]">[VOTRE_EMAIL]</a><br>
+                <strong>Site web :</strong> <a href="[VOTRE_SITE]" target="_blank" rel="noopener">[VOTRE_SITE]</a>
+            </p>
+        </div>
+        
+        <h2>Consentement</h2>
+        <p>
+            En utilisant WooNotif, vous acceptez cette politique de confidentialité. Si vous n'acceptez pas cette politique, veuillez ne pas utiliser l'application.
+        </p>
+        
+        <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
+        
+        <p style="text-align: center; color: #777; font-size: 0.9em;">
+            <strong>Note importante :</strong> Cette application fonctionne comme un client pour votre boutique WooCommerce. Toutes les données restent sous votre contrôle et sont stockées uniquement sur votre appareil. Nous n'avons aucun accès à vos données.
+        </p>
+    </div>
+</body>
+</html>
+
