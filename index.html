@@ -3,11 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=privacy-policy.html">
-    <title>WooNotif - Politique de Confidentialité</title>
+    <meta name="description" content="WooNotif - Application mobile pour suivre vos commandes WooCommerce en temps réel.">
+    <title>WooNotif - Suivi des commandes WooCommerce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: radial-gradient(circle at top, #e3f2fd, #f5f5f5);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.05em;
+            color: #546e7a;
+        }
+
+        h2 {
+            color: #263238;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+
+        h3 {
+            color: #37474f;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 1.15em;
+        }
+
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        ul {
+            margin-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 0.8em;
+            border-radius: 999px;
+            background-color: #e3f2fd;
+            color: #1e88e5;
+            margin-left: 8px;
+        }
+
+        .section-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-top: 10px;
+            border-left: 4px solid #1e88e5;
+        }
+
+        .future-box {
+            background-color: #fff3e0;
+            border-left-color: #fb8c00;
+        }
+
+        .links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        a {
+            color: #1e88e5;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .links ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .links li {
+            margin-bottom: 8px;
+        }
+
+        .small {
+            font-size: 0.9em;
+            color: #78909c;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 1.7em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>Redirection vers la <a href="privacy-policy.html">politique de confidentialité</a>...</p>
+    <div class="container">
+        <header>
+            <h1>WooNotif</h1>
+            <p class="subtitle">
+                Suivez vos commandes WooCommerce en temps réel, directement depuis votre smartphone.
+            </p>
+        </header>
+
+        <section>
+            <h2>Qu'est-ce que WooNotif ?</h2>
+            <div class="section-box">
+                <p>
+                    <strong>WooNotif</strong> est une application mobile pensée pour les propriétaires de boutiques
+                    WooCommerce qui veulent suivre leurs commandes sans ouvrir un ordinateur.
+                </p>
+                <ul>
+                    <li>Affichage des commandes récentes WooCommerce</li>
+                    <li>Notifications (si activées) pour les nouvelles commandes</li>
+                    <li>Vue rapide du client, du montant et du statut</li>
+                    <li>Connexion directe à votre propre boutique via l'API REST WooCommerce</li>
+                </ul>
+                <p>
+                    L'application ne stocke aucune donnée sur des serveurs distants : tout reste sur votre appareil.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Comment obtenir vos clés WooCommerce (CK/CS)</h2>
+            <div class="section-box">
+                <h3>1. Se connecter à votre interface WordPress</h3>
+                <ul>
+                    <li>Connectez-vous à l'administration de votre site WordPress (compte administrateur).</li>
+                    <li>Assurez-vous que le plugin <strong>WooCommerce</strong> est installé et actif.</li>
+                </ul>
+
+                <h3>2. Accéder aux clés API WooCommerce</h3>
+                <ul>
+                    <li>Dans le menu WordPress, allez dans <strong>WooCommerce &gt; Paramètres</strong>.</li>
+                    <li>Ouvrez l’onglet <strong>Avancé</strong>.</li>
+                    <li>Cliquez sur <strong>REST API</strong> puis sur <strong>Ajouter une clé</strong> (ou "Add key").</li>
+                </ul>
+
+                <h3>3. Créer une clé en mode lecture seule</h3>
+                <ul>
+                    <li>Donnez un nom à la clé (par exemple : <em>WooNotif</em>).</li>
+                    <li>Sélectionnez l’utilisateur propriétaire de la boutique.</li>
+                    <li>Dans <strong>Autorisations</strong>, choisissez <strong>Lecture</strong> uniquement.</li>
+                    <li>Cliquez sur <strong>Générer une clé API</strong>.</li>
+                </ul>
+
+                <h3>4. Récupérer les identifiants</h3>
+                <ul>
+                    <li>Copiez la <strong>Consumer Key (ck_...)</strong>.</li>
+                    <li>Copiez la <strong>Consumer Secret (cs_...)</strong>.</li>
+                    <li>Renseignez ces deux valeurs, ainsi que l’URL de votre boutique, dans l’application WooNotif.</li>
+                </ul>
+
+                <p>
+                    Pour plus de sécurité, nous recommandons d’utiliser un compte dédié avec uniquement les
+                    permissions nécessaires.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Fonctionnement technique et confidentialité</h2>
+            <div class="section-box">
+                <ul>
+                    <li>Connexion à votre boutique uniquement via <strong>HTTPS</strong>.</li>
+                    <li>Identifiants API stockés <strong>uniquement sur votre appareil</strong> (AsyncStorage).</li>
+                    <li>Aucune donnée envoyée à nos propres serveurs (nous n’en avons pas).</li>
+                    <li>Publicités gérées par <strong>Google AdMob</strong> (voir leur politique de confidentialité).</li>
+                </ul>
+                <p>
+                    Tous les détails sont expliqués dans notre <a href="privacy-policy.html">politique de confidentialité</a>.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Évolutions prévues</h2>
+            <div class="section-box future-box">
+                <p>
+                    Nous prévoyons d’ajouter prochainement :
+                </p>
+                <ul>
+                    <li>Gestion de plusieurs boutiques WooCommerce dans la même application <span class="badge">à venir</span></li>
+                    <li>Filtres avancés sur les commandes (statuts, montants, dates)</li>
+                    <li>Options supplémentaires de personnalisation des notifications</li>
+                </ul>
+                <p>
+                    Ces évolutions seront annoncées dans les futures mises à jour de l’application.
+                </p>
+            </div>
+        </section>
+
+        <section class="links">
+            <h2>Liens utiles</h2>
+            <ul>
+                <li><a href="privacy-policy.html">Politique de confidentialité de WooNotif</a></li>
+                <li><a href="data-deletion.html">Procédure de suppression des données</a></li>
+                <li><a href="https://taghazit.com" target="_blank" rel="noopener">Site du développeur (taghazit.com)</a></li>
+            </ul>
+
+            <p class="small">
+                Cette page est uniquement informative et destinée à accompagner la fiche Google Play de l’application WooNotif.
+            </p>
+        </section>
+    </div>
 </body>
 </html>
-
