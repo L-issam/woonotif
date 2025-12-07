@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WooNotif - Application mobile pour suivre vos commandes WooCommerce en temps réel.">
-    <title>WooNotif - Suivi des commandes WooCommerce</title>
+    <meta name="description" content="WooNotif - Application mobile multi-plateforme pour suivre vos commandes e-commerce (WooCommerce, Shopify, Wix) en temps réel.">
+    <title>WooNotif - Suivi multi-plateformes des commandes e-commerce</title>
     <style>
         * {
             margin: 0;
@@ -144,7 +144,7 @@
             <img src="assets/images/splash.png" alt="WooNotif" style="max-width:100%; height:auto; border-radius:12px; margin-bottom:20px;">
             <h1>WooNotif</h1>
             <p class="subtitle">
-                Suivez vos commandes WooCommerce en temps réel, directement depuis votre smartphone.
+                Suivez vos commandes e-commerce en temps réel sur WooCommerce, Shopify, Wix et plus encore.
             </p>
         </header>
 
@@ -152,67 +152,130 @@
             <h2>Qu'est-ce que WooNotif ?</h2>
             <div class="section-box">
                 <p>
-                    <strong>WooNotif</strong> est une application mobile pensée pour les propriétaires de boutiques
-                    WooCommerce qui veulent suivre leurs commandes sans ouvrir un ordinateur.
+                    <strong>WooNotif</strong> est une application mobile multi-plateforme pensée pour les propriétaires
+                    de boutiques e-commerce qui veulent suivre leurs commandes en temps réel, directement depuis leur smartphone.
                 </p>
                 <ul>
-                    <li>Affichage des commandes récentes WooCommerce</li>
-                    <li>Notifications (si activées) pour les nouvelles commandes</li>
-                    <li>Vue rapide du client, du montant et du statut</li>
-                    <li>Connexion directe à votre propre boutique via l'API REST WooCommerce</li>
+                    <li>Support de <strong>plusieurs plateformes</strong> : WooCommerce, Shopify, Wix et bientôt d'autres</li>
+                    <li>Gestion de <strong>plusieurs boutiques</strong> dans la même application</li>
+                    <li>Notifications push pour les nouvelles commandes (si activées)</li>
+                    <li>Vue détaillée des commandes avec informations clients</li>
+                    <li>Commentaires locaux pour suivre vos actions sur les commandes</li>
+                    <li>Export CSV des commandes sélectionnées</li>
                 </ul>
                 <p>
                     L'application ne stocke aucune donnée sur des serveurs distants : tout reste sur votre appareil.
+                    Les commandes ne sont <strong>jamais modifiées</strong> sur vos boutiques en ligne.
                 </p>
             </div>
         </section>
 
         <section>
-            <h2>Comment obtenir vos clés WooCommerce (CK/CS)</h2>
+            <h2>Comment obtenir vos clés API</h2>
             <div class="section-box">
-                <h3>1. Se connecter à votre interface WordPress</h3>
+                <p>
+                    WooNotif supporte plusieurs plateformes e-commerce. Voici comment obtenir vos clés API pour chacune :
+                </p>
+
+                <h3>🛒 WooCommerce</h3>
+                <h4>1. Se connecter à votre interface WordPress</h4>
                 <ul>
                     <li>Connectez-vous à l'administration de votre site WordPress (compte administrateur).</li>
                     <li>Assurez-vous que le plugin <strong>WooCommerce</strong> est installé et actif.</li>
                 </ul>
 
-                <p style="text-align:center; margin: 10px 0 20px;">
-                    <img src="assets/images/woonotif-api-illust-1.png" alt="Connexion à WordPress et accès à WooCommerce" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                </p>
-
-                <h3>2. Accéder aux clés API WooCommerce</h3>
+                <h4>2. Accéder aux clés API WooCommerce</h4>
                 <ul>
                     <li>Dans le menu WordPress, allez dans <strong>WooCommerce &gt; Paramètres</strong>.</li>
-                    <li>Ouvrez l’onglet <strong>Avancé</strong>.</li>
-                    <li>Cliquez sur <strong>REST API</strong> puis sur <strong>Ajouter une clé</strong> (ou "Add key").</li>
+                    <li>Ouvrez l'onglet <strong>Avancé</strong>.</li>
+                    <li>Cliquez sur <strong>REST API</strong> puis sur <strong>Ajouter une clé</strong>.</li>
                 </ul>
 
-                <p style="text-align:center; margin: 10px 0 20px;">
-                    <img src="assets/images/woonotif-api-illust-2.png" alt="Accès aux réglages avancés et à l’API REST WooCommerce" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                </p>
-
-                <h3>3. Créer une clé en mode lecture seule</h3>
+                <h4>3. Créer une clé en mode lecture seule</h4>
                 <ul>
                     <li>Donnez un nom à la clé (par exemple : <em>WooNotif</em>).</li>
-                    <li>Sélectionnez l’utilisateur propriétaire de la boutique.</li>
+                    <li>Sélectionnez l'utilisateur propriétaire de la boutique.</li>
                     <li>Dans <strong>Autorisations</strong>, choisissez <strong>Lecture</strong> uniquement.</li>
                     <li>Cliquez sur <strong>Générer une clé API</strong>.</li>
                 </ul>
 
-                <p style="text-align:center; margin: 10px 0 20px;">
-                    <img src="assets/images/woonotif-api-illust-3.png" alt="Création d’une clé API WooCommerce en lecture seule" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                </p>
-
-                <h3>4. Récupérer les identifiants</h3>
+                <h4>4. Récupérer les identifiants</h4>
                 <ul>
                     <li>Copiez la <strong>Consumer Key (ck_...)</strong>.</li>
                     <li>Copiez la <strong>Consumer Secret (cs_...)</strong>.</li>
-                    <li>Renseignez ces deux valeurs, ainsi que l’URL de votre boutique, dans l’application WooNotif.</li>
+                    <li>Renseignez ces valeurs dans WooNotif.</li>
                 </ul>
 
+                <h3>🛍️ Shopify</h3>
+                <h4>1. Accéder aux paramètres de l'API</h4>
+                <ul>
+                    <li>Connectez-vous à votre interface d'administration Shopify.</li>
+                    <li>Allez dans <strong>Paramètres &gt; Applications et canaux de vente</strong>.</li>
+                    <li>Cliquez sur <strong>Développer des applications</strong>.</li>
+                </ul>
+
+                <p style="text-align:center; margin: 10px 0 20px;">
+                    <img src="assets/images/shopify-apikey-1.png" alt="Accès aux paramètres API Shopify" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+                </p>
+
+                <h4>2. Créer une application personnalisée</h4>
+                <ul>
+                    <li>Cliquez sur <strong>Créer une application</strong>.</li>
+                    <li>Donnez un nom à votre application (ex: <em>WooNotif</em>).</li>
+                    <li>Configurez les permissions en lecture seule pour les commandes.</li>
+                    <li>Générez et copiez la <strong>clé d'API Admin</strong>.</li>
+                </ul>
+
+                <p style="text-align:center; margin: 10px 0 20px;">
+                    <img src="assets/images/shopify-apikey-2.png" alt="Création d'une application Shopify et récupération de la clé API" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+                </p>
+
+                <h3>🎨 Wix</h3>
+                <h4>1. Accéder au Wix Developer Center</h4>
+                <ul>
+                    <li>Connectez-vous à votre compte Wix.</li>
+                    <li>Allez dans <strong>Développeur &gt; Centre de développement</strong>.</li>
+                    <li>Créez une nouvelle application ou utilisez une existante.</li>
+                </ul>
+
+                <p style="text-align:center; margin: 10px 0 20px;">
+                    <img src="assets/images/wix-apikey-1.png" alt="Accès au Centre de développement Wix" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+                </p>
+
+                <h4>2. Configurer l'application Wix</h4>
+                <ul>
+                    <li>Activez l'API Stores avec les permissions de lecture.</li>
+                    <li>Générez un token d'accès avec les droits appropriés.</li>
+                    <li>Copiez l'<strong>Account ID</strong>, <strong>Site ID</strong> et <strong>Access Token</strong>.</li>
+                </ul>
+
+                <p style="text-align:center; margin: 10px 0 20px;">
+                    <img src="assets/images/wix-apikey-2.png" alt="Configuration de l'application Wix et récupération des identifiants" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
+                </p>
+
                 <p>
-                    Pour plus de sécurité, nous recommandons d’utiliser un compte dédié avec uniquement les
-                    permissions nécessaires.
+                    <strong>Conseil de sécurité :</strong> Pour toutes les plateformes, nous recommandons d'utiliser un compte
+                    dédié avec uniquement les permissions de lecture nécessaires.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Comptes de test inclus</h2>
+            <div class="section-box">
+                <p>
+                    Avant de connecter vos vraies boutiques, découvrez toutes les fonctionnalités de WooNotif
+                    grâce aux <strong>comptes de test préconfigurés</strong> directement dans l'application !
+                </p>
+                <ul>
+                    <li>Comptes de démonstration pour WooCommerce, Shopify et Wix</li>
+                    <li>Identifiants fictifs mais réalistes pour tester l'interface</li>
+                    <li>Découverte des fonctionnalités sans configuration préalable</li>
+                    <li>Remplissage automatique des champs de connexion</li>
+                </ul>
+                <p>
+                    Ces comptes vous permettent de découvrir l'application et ses capacités multi-plateformes
+                    en quelques minutes, sans risque pour vos données réelles.
                 </p>
             </div>
         </section>
@@ -220,11 +283,20 @@
         <section>
             <h2>Fonctionnement technique et confidentialité</h2>
             <div class="section-box">
+                <h3>Récupération intelligente des commandes</h3>
                 <ul>
-                    <li>Connexion à votre boutique uniquement via <strong>HTTPS</strong>.</li>
-                    <li>Identifiants API stockés <strong>uniquement sur votre appareil</strong> (AsyncStorage).</li>
-                    <li>Aucune donnée envoyée à nos propres serveurs (nous n’en avons pas).</li>
-                    <li>Publicités gérées par <strong>Google AdMob</strong> (voir leur politique de confidentialité).</li>
+                    <li>Seules les <strong>commandes en cours de traitement</strong> sont récupérées</li>
+                    <li>Les commandes terminées (livrées/annulées) ne sont pas affichées pour respecter la vie privée</li>
+                    <li>Les commandes ne sont <strong>jamais modifiées</strong> sur vos boutiques en ligne</li>
+                    <li>Commentaires et statuts locaux restent uniquement sur votre appareil</li>
+                </ul>
+
+                <h3>Sécurité et confidentialité</h3>
+                <ul>
+                    <li>Connexion à vos boutiques uniquement via <strong>HTTPS</strong></li>
+                    <li>Identifiants API stockés <strong>uniquement sur votre appareil</strong> (AsyncStorage)</li>
+                    <li>Aucune donnée envoyée à nos propres serveurs (nous n'en avons pas)</li>
+                    <li>Publicités gérées par <strong>Google AdMob</strong> (voir leur politique)</li>
                 </ul>
                 <p>
                     Tous les détails sont expliqués dans notre <a href="privacy-policy.html">politique de confidentialité</a>.
@@ -233,18 +305,39 @@
         </section>
 
         <section>
-            <h2>Évolutions prévues</h2>
-            <div class="section-box future-box">
+            <h2>Fonctionnalités actuelles</h2>
+            <div class="section-box">
                 <p>
-                    Nous prévoyons d’ajouter prochainement :
+                    WooNotif est déjà riche en fonctionnalités :
                 </p>
                 <ul>
-                    <li>Gestion de plusieurs boutiques WooCommerce dans la même application <span class="badge">à venir</span></li>
-                    <li>Filtres avancés sur les commandes (statuts, montants, dates)</li>
-                    <li>Options supplémentaires de personnalisation des notifications</li>
+                    <li>✅ Support multi-plateformes (WooCommerce, Shopify, Wix)</li>
+                    <li>✅ Gestion de plusieurs boutiques dans une même application</li>
+                    <li>✅ Filtres par statut et recherche par numéro/client/email</li>
+                    <li>✅ Commentaires locaux sur les commandes</li>
+                    <li>✅ Marquage "traité" des commandes localement</li>
+                    <li>✅ Export CSV avec commentaires</li>
+                    <li>✅ Comptes de test préconfigurés</li>
+                    <li>✅ Notifications push personnalisables</li>
+                    <li>✅ Mode sélection multiple avec actions groupées</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Évolutions futures</h2>
+            <div class="section-box future-box">
+                <p>
+                    Nous travaillons sur de nouvelles plateformes et améliorations :
+                </p>
+                <ul>
+                    <li>Support de Squarespace et autres plateformes e-commerce <span class="badge">bientôt</span></li>
+                    <li>Thèmes personnalisables et options d'affichage avancées</li>
+                    <li>Synchronisation des données entre appareils</li>
+                    <li>Statistiques et analyses des ventes</li>
                 </ul>
                 <p>
-                    Ces évolutions seront annoncées dans les futures mises à jour de l’application.
+                    Ces évolutions seront annoncées dans les futures mises à jour de l'application.
                 </p>
             </div>
         </section>
