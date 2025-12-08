@@ -281,6 +281,110 @@
         </section>
 
         <section>
+            <h2>Notifications temps réel avec webhooks</h2>
+            <div class="section-box">
+                <p>
+                    Pour recevoir des <strong>notifications push instantanées</strong> dès qu'une nouvelle commande arrive,
+                    configurez les webhooks sur vos plateformes e-commerce. Cette étape est <strong>optionnelle</strong>
+                    mais recommandée pour une expérience optimale.
+                </p>
+
+                <h3>🚀 Avantages des webhooks</h3>
+                <ul>
+                    <li>Notifications push <strong>instantanées</strong> (pas de délai)</li>
+                    <li>Économie de batterie (pas de vérification périodique)</li>
+                    <li>Alerte immédiate pour les nouvelles commandes</li>
+                    <li>Fonctionne même en arrière-plan</li>
+                </ul>
+
+                <h3>⚙️ Configuration par plateforme</h3>
+
+                <h4>🛒 WooCommerce - Configuration des webhooks</h4>
+                <h5>1. Accéder aux webhooks WordPress</h5>
+                <ul>
+                    <li>Connectez-vous à votre panneau WordPress</li>
+                    <li>Allez dans <strong>WooCommerce &gt; Réglages &gt; Avancé &gt; Webhooks</strong></li>
+                    <li>Cliquez sur <strong>"Ajouter un webhook"</strong></li>
+                </ul>
+
+                <h5>2. Configurer le webhook pour les nouvelles commandes</h5>
+                <ul>
+                    <li><strong>Nom :</strong> <em>WooNotif - Nouvelles commandes</em></li>
+                    <li><strong>Statut :</strong> Actif</li>
+                    <li><strong>Sujet :</strong> Commande créée</li>
+                    <li><strong>URL de livraison :</strong> <code>https://us-central1-woonotifs.cloudfunctions.net/webhookWooCommerce</code></li>
+                    <li><strong>Version API :</strong> WP REST API Integration v3</li>
+                </ul>
+
+                <h5>3. Sauvegarder et tester</h5>
+                <ul>
+                    <li>Cliquez sur <strong>"Enregistrer le webhook"</strong></li>
+                    <li>Passez une commande test pour vérifier les notifications</li>
+                </ul>
+
+                <h4>🛍️ Shopify - Configuration des webhooks</h4>
+                <h5>1. Accéder aux paramètres de notifications</h5>
+                <ul>
+                    <li>Connectez-vous à votre admin Shopify</li>
+                    <li>Allez dans <strong>Paramètres &gt; Notifications &gt; Webhooks</strong></li>
+                    <li>Cliquez sur <strong>"Créer un webhook"</strong></li>
+                </ul>
+
+                <h5>2. Configurer le webhook</h5>
+                <ul>
+                    <li><strong>Événement :</strong> Order creation</li>
+                    <li><strong>Format :</strong> JSON</li>
+                    <li><strong>URL :</strong> <code>https://us-central1-woonotifs.cloudfunctions.net/webhookWooCommerce</code></li>
+                </ul>
+
+                <h5>3. Sauvegarder et tester</h5>
+                <ul>
+                    <li>Cliquez sur <strong>"Enregistrer"</strong></li>
+                    <li>Créez une commande test dans Shopify</li>
+                </ul>
+
+                <h4>🎨 Wix - Configuration des webhooks</h4>
+                <h5>1. Accéder au Centre de développement</h5>
+                <ul>
+                    <li>Connectez-vous à votre éditeur Wix</li>
+                    <li>Allez dans <strong>Paramètres du site &gt; Gestion des ventes &gt; Applications et intégrations &gt; Développeur &gt; Webhooks</strong></li>
+                    <li>Cliquez sur <strong>"Créer un webhook"</strong></li>
+                </ul>
+
+                <h5>2. Configurer le webhook</h5>
+                <ul>
+                    <li><strong>Événement :</strong> Order Placed</li>
+                    <li><strong>URL du webhook :</strong> <code>https://us-central1-woonotifs.cloudfunctions.net/webhookWooCommerce</code></li>
+                    <li><strong>Format :</strong> JSON</li>
+                </ul>
+
+                <h5>3. Sauvegarder et tester</h5>
+                <ul>
+                    <li>Cliquez sur <strong>"Enregistrer"</strong></li>
+                    <li>Passez une commande test sur votre site Wix</li>
+                </ul>
+
+                <h3>🔧 Dépannage des webhooks</h3>
+                <ul>
+                    <li><strong>Pas de notifications ?</strong> Vérifiez que le webhook est actif et que l'URL est correcte</li>
+                    <li><strong>Logs Firebase :</strong> Utilisez <code>firebase functions:log --only webhookWooCommerce</code></li>
+                    <li><strong>Test manuel :</strong> Créez une commande et surveillez les logs</li>
+                    <li><strong>Documentation complète :</strong> Consultez notre <a href="docs/WEBHOOK_SETUP.md">guide détaillé des webhooks</a></li>
+                </ul>
+
+                <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #2196f3;">
+                    <p style="margin: 0; font-weight: bold; color: #1565c0;">
+                        💡 <strong>Note importante :</strong>
+                    </p>
+                    <p style="margin: 5px 0 0 0;">
+                        Les webhooks sont <strong>optionnels</strong> mais fortement recommandés pour une expérience optimale.
+                        Sans webhooks, l'application vérifie les nouvelles commandes toutes les 15 minutes minimum (limitation iOS/Android).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
             <h2>Fonctionnement technique et confidentialité</h2>
             <div class="section-box">
                 <h3>Récupération intelligente des commandes</h3>
