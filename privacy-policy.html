@@ -170,6 +170,40 @@
             <li>Préférences de notification</li>
             <li>Données de diagnostic anonymes (en cas d'erreurs)</li>
         </ul>
+
+        <h3>Données Firebase (pour les notifications push)</h3>
+        <div class="last-updated" style="background-color: #e8f5e9; border-left-color: #4caf50;">
+            <strong>✅ Anonymes et fonctionnelles :</strong> Ces données sont nécessaires uniquement pour les notifications push (premium ou gratuit).
+        </div>
+
+        <h4>Tableau user_tokens</h4>
+        <p>Stocke les informations de notification pour chaque utilisateur :</p>
+        <ul>
+            <li><strong>expoPushToken</strong> : Token Expo pour envoyer les notifications push</li>
+            <li><strong>platform</strong> : Plateforme ("expo")</li>
+            <li><strong>updatedAt</strong> : Date de dernière mise à jour du token</li>
+            <li><strong>userId</strong> : Identifiant unique généré localement (UUID anonyme)</li>
+        </ul>
+
+        <h4>Tableau store_subscriptions</h4>
+        <p>Stocke les abonnements aux notifications par boutique (activé uniquement si vous choisissez de recevoir des notifications) :</p>
+        <ul>
+            <li><strong>active</strong> : Statut de l'abonnement (true/false)</li>
+            <li><strong>createdAt</strong> : Date de création de l'abonnement</li>
+            <li><strong>storeId</strong> : Identifiant unique de la boutique (généré localement)</li>
+            <li><strong>storeUrl</strong> : URL anonymisée de la boutique (hashée pour la confidentialité)</li>
+            <li><strong>userId</strong> : Identifiant unique de l'utilisateur (UUID anonyme)</li>
+        </ul>
+
+        <p>
+            <strong>Ces données sont :</strong>
+        </p>
+        <ul>
+            <li>Générées automatiquement et localement sur votre appareil</li>
+            <li>Complètement anonymes (pas de nom, email, ou données personnelles)</li>
+            <li>Utilisées uniquement pour les notifications push (pas pour le tracking ou la publicité)</li>
+            <li>Supprimées automatiquement si vous désactivez les notifications</li>
+        </ul>
         
         <h2>Comment nous utilisons vos informations</h2>
         
@@ -178,6 +212,7 @@
             <li><span class="check">✓</span> <strong>Affichage des commandes</strong> : Pour vous permettre de visualiser vos commandes WooCommerce</li>
             <li><span class="check">✓</span> <strong>Notifications</strong> : Pour vous alerter des nouvelles commandes (si activé)</li>
             <li><span class="check">✓</span> <strong>Authentification</strong> : Pour se connecter à votre API WooCommerce de manière sécurisée</li>
+            <li><span class="check">✓</span> <strong>Notifications Push</strong> : Gestion technique des tokens et abonnements (données anonymes uniquement)</li>
         </ul>
         
         <h3>Ce que nous ne faisons PAS</h3>
@@ -263,12 +298,56 @@
             <li>Vous pouvez désactiver la personnalisation des publicités dans les paramètres de votre appareil</li>
         </ul>
         
+        <h2>Plan Premium</h2>
+
+        <h3>Achat du plan premium</h3>
+        <p>
+            WooNotif propose un plan premium optionnel (0,99 €/mois ou 9,49 €/an) pour supprimer les publicités et soutenir le développement.
+        </p>
+        <ul>
+            <li><strong>Achat via Google Play</strong> : Les achats sont gérés exclusivement par Google Play Store</li>
+            <li><strong>Pas de données personnelles</strong> collectées pour les achats premium</li>
+            <li><strong>Restauration automatique</strong> des achats sur tous vos appareils connectés au même compte Google</li>
+        </ul>
+
+        <h3>Données Firebase pour les notifications</h3>
+        <p>
+            Pour envoyer des notifications push (fonctionnement gratuit ou premium), nous utilisons Firebase/Firestore avec des données minimales et anonymes stockées dans deux tableaux :
+        </p>
+
+        <h4>user_tokens</h4>
+        <ul>
+            <li><strong>expoPushToken</strong> : Token technique pour les notifications</li>
+            <li><strong>platform</strong> : Plateforme de notification</li>
+            <li><strong>updatedAt</strong> : Date de mise à jour</li>
+            <li><strong>userId</strong> : UUID anonyme généré localement</li>
+        </ul>
+
+        <h4>store_subscriptions</h4>
+        <ul>
+            <li><strong>active</strong> : Statut de l'abonnement aux notifications</li>
+            <li><strong>createdAt</strong> : Date de création</li>
+            <li><strong>storeId</strong> : ID unique de boutique</li>
+            <li><strong>storeUrl</strong> : URL hashée pour confidentialité</li>
+            <li><strong>userId</strong> : UUID anonyme de l'utilisateur</li>
+        </ul>
+
+        <p>
+            Ces données sont <strong>anonymes et générées localement</strong> sur votre appareil. Elles ne contiennent aucune information personnelle identifiable et servent uniquement aux notifications push.
+        </p>
+
+        <div class="last-updated" style="background-color: #fff3cd; border-left-color: #ffc107;">
+            <strong>🔒 Sécurité Firebase :</strong> Toutes les données Firebase sont chiffrées en transit et au repos, et nous n'avons accès qu'aux données nécessaires au fonctionnement du service premium.
+        </div>
+
         <h2>Partage avec des tiers</h2>
         <p>
             Nous ne partageons vos données avec aucun tiers, sauf :
         </p>
         <ul>
+            <li><strong>Google Play Store</strong> : Gestion des achats premium (pas de données personnelles)</li>
             <li><strong>Google AdMob</strong> : Uniquement pour les publicités (données anonymes)</li>
+            <li><strong>Firebase/Firestore</strong> : Données anonymes pour les notifications push (user_tokens et store_subscriptions)</li>
             <li><strong>Votre boutique WooCommerce</strong> : Directement via l'API REST (données que vous contrôlez)</li>
         </ul>
         
@@ -325,4 +404,3 @@
     </div>
 </body>
 </html>
-
