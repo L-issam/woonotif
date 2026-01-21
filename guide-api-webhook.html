@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide complet pour configurer les APIs et webhooks WooNotif - Configuration WooCommerce, Shopify et Wix">
+    <title>Guide API & Webhooks - WooNotif</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: radial-gradient(circle at top, #e3f2fd, #f5f5f5);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e3f2fd;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.05em;
+            color: #546e7a;
+        }
+
+        h2 {
+            color: #263238;
+            margin-top: 40px;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: #37474f;
+            margin-top: 25px;
+            margin-bottom: 8px;
+            font-size: 1.15em;
+        }
+
+        h4 {
+            color: #455a64;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            font-size: 1.05em;
+        }
+
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            font-size: 0.8em;
+            border-radius: 999px;
+            background-color: #e3f2fd;
+            color: #1e88e5;
+            margin-left: 8px;
+        }
+
+        .section-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-top: 10px;
+            border-left: 4px solid #1e88e5;
+        }
+
+        .warning-box {
+            background-color: #fff3e0;
+            border-left-color: #fb8c00;
+        }
+
+        .success-box {
+            background-color: #e8f5e9;
+            border-left-color: #4caf50;
+        }
+
+        .danger-box {
+            background-color: #ffebee;
+            border-left-color: #f44336;
+        }
+
+        .code-block {
+            background-color: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+            overflow-x: auto;
+        }
+
+        .code-inline {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.85em;
+        }
+
+        a {
+            color: #1e88e5;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background-color: #f5f5f5;
+            border-radius: 6px;
+            color: #546e7a;
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+
+        .back-link:hover {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+
+        .small {
+            font-size: 0.9em;
+            color: #78909c;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 5px;
+        }
+
+        .platform-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 0.75em;
+            border-radius: 12px;
+            margin-left: 8px;
+            font-weight: bold;
+        }
+
+        .woocommerce { background-color: #7b5ce7; color: white; }
+        .shopify { background-color: #7ab55c; color: white; }
+        .wix { background-color: #000; color: white; }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px;
+            }
+
+            h1 {
+                font-size: 1.7em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Retour à l'accueil</a>
+
+        <header>
+            <h1><span class="emoji">🔑</span> Guide : Configuration des APIs et Webhooks</h1>
+            <p class="subtitle">
+                Ce guide vous explique comment créer des clés API et configurer les webhooks pour WooNotif selon votre plateforme e-commerce (WooCommerce, Shopify, Wix).
+            </p>
+        </header>
+
+        <section>
+            <h2><span class="emoji">👥</span> Qui doit lire ce guide ?</h2>
+
+            <h3><span class="emoji">🏪</span> Propriétaires de boutiques e-commerce</h3>
+            <p>
+                Vous possédez une boutique WooCommerce, Shopify ou Wix et souhaitez recevoir des notifications push instantanées sur votre téléphone pour chaque nouvelle commande.
+            </p>
+
+            <h3><span class="emoji">🚚</span> Collaborateurs et livreurs</h3>
+            <p>
+                Vous travaillez avec plusieurs boutiques e-commerce et utilisez WooNotif pour suivre les commandes en temps réel depuis votre téléphone.
+            </p>
+            <div class="section-box">
+                <p>
+                    <strong>Dans les deux cas, ce guide vous guidera pas à pas pour connecter votre/vos boutique(s) à WooNotif.</strong>
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">📋</span> Prérequis par plateforme</h2>
+
+            <h3><span class="emoji">🛒</span> WooCommerce</h3>
+            <ul>
+                <li>Boutique WooCommerce active</li>
+                <li>Accès administrateur WordPress</li>
+                <li>WooCommerce installé et activé</li>
+            </ul>
+
+            <h3><span class="emoji">🛍️</span> Shopify</h3>
+            <ul>
+                <li>Boutique Shopify active</li>
+                <li>Accès administrateur Shopify</li>
+                <li>Permissions pour créer des applications</li>
+            </ul>
+
+            <h3><span class="emoji">🎨</span> Wix</h3>
+            <ul>
+                <li>Site Wix avec boutique e-commerce</li>
+                <li>Accès au Centre de développement Wix</li>
+                <li>Plan Wix Business ou supérieur</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="emoji">📱</span> Avantages des webhooks (Optionnel mais recommandé)</h2>
+            <div class="section-box success-box">
+                <p>
+                    Les webhooks permettent à WooNotif de recevoir des notifications push <strong>instantanées</strong> pour les nouvelles commandes :
+                </p>
+                <ul>
+                    <li><span class="emoji">⚡</span> Notifications push immédiates (pas de délai)</li>
+                    <li><span class="emoji">🔋</span> Économie de batterie (pas de vérification périodique)</li>
+                    <li><span class="emoji">🔔</span> Alertes en temps réel pour les nouvelles commandes</li>
+                    <li><span class="emoji">📱</span> Fonctionne même en arrière-plan</li>
+                </ul>
+                <div class="section-box warning-box">
+                    <p>
+                        <strong>Note :</strong> Sans webhooks, l'application vérifie les nouvelles commandes toutes les 15 minutes minimum.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">🔑</span> Configuration par plateforme</h2>
+
+            <h3><span class="emoji">🛒</span> WooCommerce <span class="platform-badge woocommerce">WooCommerce</span></h3>
+
+            <h4>1. Créer des clés API</h4>
+
+            <h4>Étape 1 : Accéder aux paramètres API</h4>
+            <ol>
+                <li>Connectez-vous à votre <strong>tableau de bord WordPress</strong></li>
+                <li>Allez dans <strong>WooCommerce</strong> → <strong>Paramètres</strong></li>
+                <li>Cliquez sur l'onglet <strong>Avancé</strong></li>
+                <li>Dans la section <strong>REST API</strong>, cliquez sur <strong>Ajouter une clé</strong></li>
+            </ol>
+
+            <h4>Étape 2 : Configurer la clé API</h4>
+            <p>Remplissez le formulaire :</p>
+            <ul>
+                <li><strong>Description</strong> : <code class="code-inline">WooNotif Mobile App</code></li>
+                <li><strong>Utilisateur</strong> : Sélectionnez votre compte administrateur</li>
+                <li><strong>Permissions</strong> : <strong>Lecture</strong> (suffisant pour WooNotif)</li>
+            </ul>
+
+            <h4>Étape 3 : Générer et sauvegarder</h4>
+            <ol>
+                <li>Cliquez sur <strong>Générer une clé API</strong></li>
+                <li><strong>IMPORTANT</strong> : Copiez immédiatement :
+                    <ul>
+                        <li><strong>Consumer Key</strong> (<code class="code-inline">ck_...</code>)</li>
+                        <li><strong>Consumer Secret</strong> (<code class="code-inline">cs_...</code>)</li>
+                    </ul>
+                </li>
+            </ol>
+            <div class="section-box danger-box">
+                <p><span class="emoji">⚠️</span> <strong>Le Consumer Secret n'apparaît qu'une fois !</strong></p>
+            </div>
+
+            <h4>Étape 4 : Utiliser dans WooNotif</h4>
+            <p><strong>Saisie manuelle :</strong></p>
+            <ol>
+                <li>Ouvrez WooNotif</li>
+                <li>Entrez l'URL de votre boutique</li>
+                <li>Collez le Consumer Key et Consumer Secret</li>
+                <li>Cliquez sur <strong>Se connecter</strong></li>
+            </ol>
+
+            <p><strong>Scanner QR (plus rapide) :</strong></p>
+            <ol>
+                <li>WooCommerce affiche un QR code après génération</li>
+                <li>Dans WooNotif, cliquez sur <strong>Scanner QR</strong></li>
+                <li>Scannez le code pour remplir automatiquement les champs</li>
+            </ol>
+
+            <h4>2. Configurer les webhooks (Optionnel)</h4>
+
+            <h4>Étape 1 : Accéder aux webhooks</h4>
+            <ol>
+                <li>WordPress → <strong>WooCommerce</strong> → <strong>Paramètres</strong> → <strong>Avancé</strong> → <strong>Webhooks</strong></li>
+                <li>Cliquez sur <strong>"Ajouter un webhook"</strong></li>
+            </ol>
+
+            <h4>Étape 2 : Configurer le webhook</h4>
+            <ul>
+                <li><strong>Nom</strong> : <code class="code-inline">WooNotif - Nouvelles commandes</code></li>
+                <li><strong>Statut</strong> : <code class="code-inline">Actif</code></li>
+                <li><strong>Sujet</strong> : <code class="code-inline">Commande créée</code></li>
+                <li><strong>URL de livraison</strong> : <code class="code-inline">https://webhookwoocommerce-adydmsmlpa-uc.a.run.app</code></li>
+                <li><strong>Version API</strong> : <code class="code-inline">WP REST API Integration v3</code></li>
+            </ul>
+
+            <h4>Étape 3 : Sauvegarder et tester</h4>
+            <ol>
+                <li>Cliquez sur <strong>"Enregistrer le webhook"</strong></li>
+                <li>Passez une commande test pour vérifier les notifications</li>
+            </ol>
+
+            <h3><span class="emoji">🛍️</span> Shopify <span class="platform-badge shopify">Shopify</span></h3>
+
+            <h4>1. Créer des clés API</h4>
+
+            <h4>Étape 1 : Accéder aux paramètres API</h4>
+            <ol>
+                <li>Connectez-vous à votre <strong>admin Shopify</strong></li>
+                <li>Allez dans <strong>Paramètres</strong> → <strong>Applications et canaux de vente</strong></li>
+                <li>Cliquez sur <strong>Développer des applications</strong></li>
+            </ol>
+
+            <h4>Étape 2 : Créer une application personnalisée</h4>
+            <ol>
+                <li>Cliquez sur <strong>"Créer une application"</strong></li>
+                <li>Donnez un nom : <code class="code-inline">WooNotif</code></li>
+                <li>Configurez les permissions suivantes en <strong>lecture seule</strong> :
+                    <ul>
+                        <li><strong>Content</strong> → <code class="code-inline">read_content</code> (pour accéder aux informations de la boutique)</li>
+                        <li><strong>Orders</strong> → <code class="code-inline">read_orders</code> (pour accéder aux commandes)</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>Étape 3 : Générer et sauvegarder</h4>
+            <ol>
+                <li>Dans <strong>Configuration API</strong>, générez une <strong>clé d'API Admin</strong></li>
+                <li>Copiez la clé générée</li>
+            </ol>
+
+            <h4>Étape 4 : Utiliser dans WooNotif</h4>
+            <ol>
+                <li>Ouvrez WooNotif</li>
+                <li>Sélectionnez <strong>Shopify</strong> comme plateforme</li>
+                <li>Entrez l'URL de votre boutique (ex: <code class="code-inline">monsite.myshopify.com</code>)</li>
+                <li>Collez la <strong>clé d'API Admin</strong></li>
+                <li>Cliquez sur <strong>Se connecter</strong></li>
+            </ol>
+
+            <h4>2. Configurer les webhooks (Optionnel)</h4>
+
+            <h4>Étape 1 : Accéder aux webhooks</h4>
+            <ol>
+                <li>Admin Shopify → <strong>Paramètres</strong> → <strong>Notifications</strong> → <strong>Webhooks</strong></li>
+                <li>Cliquez sur <strong>"Créer un webhook"</strong></li>
+            </ol>
+
+            <h4>Étape 2 : Configurer le webhook</h4>
+            <ul>
+                <li><strong>Événement</strong> : <code class="code-inline">Order creation</code></li>
+                <li><strong>Format</strong> : <code class="code-inline">JSON</code></li>
+                <li><strong>URL</strong> : <code class="code-inline">https://webhookwoocommerce-adydmsmlpa-uc.a.run.app</code></li>
+            </ul>
+
+            <h4>Étape 3 : Sauvegarder et tester</h4>
+            <ol>
+                <li>Cliquez sur <strong>"Enregistrer"</strong></li>
+                <li>Créez une commande test dans Shopify</li>
+            </ol>
+
+            <h3><span class="emoji">🎨</span> Wix <span class="platform-badge wix">Wix</span></h3>
+
+            <h4>1. Créer des clés API</h4>
+
+            <h4>Étape 1 : Accéder au Centre de développement</h4>
+            <ol>
+                <li>Connectez-vous à votre <strong>éditeur Wix</strong></li>
+                <li>Allez dans <strong>Paramètres du site</strong> → <strong>Gestion des ventes</strong> → <strong>Applications et intégrations</strong> → <strong>Développeur</strong> → <strong>Centre de développement</strong></li>
+            </ol>
+
+            <h4>Étape 2 : Créer une application</h4>
+            <ol>
+                <li>Créez une nouvelle application ou utilisez une existante</li>
+                <li>Activez l'API <strong>Stores</strong> avec permissions de lecture</li>
+            </ol>
+
+            <h4>Étape 3 : Générer les tokens</h4>
+            <ol>
+                <li>Générez un <strong>Access Token</strong> avec les droits appropriés</li>
+                <li>Copiez :
+                    <ul>
+                        <li><strong>Account ID</strong></li>
+                        <li><strong>Site ID</strong></li>
+                        <li><strong>Access Token</strong></li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h4>Étape 4 : Utiliser dans WooNotif</h4>
+            <ol>
+                <li>Ouvrez WooNotif</li>
+                <li>Sélectionnez <strong>Wix</strong> comme plateforme</li>
+                <li>Entrez l'URL de votre site Wix</li>
+                <li>Renseignez les trois valeurs (Account ID, Site ID, Access Token)</li>
+                <li>Cliquez sur <strong>Se connecter</strong></li>
+            </ol>
+
+            <h4>2. Configurer les webhooks (Optionnel)</h4>
+
+            <h4>Étape 1 : Accéder aux webhooks</h4>
+            <ol>
+                <li>Centre de développement Wix → <strong>Webhooks</strong></li>
+                <li>Cliquez sur <strong>"Créer un webhook"</strong></li>
+            </ol>
+
+            <h4>Étape 2 : Configurer le webhook</h4>
+            <ul>
+                <li><strong>Événement</strong> : <code class="code-inline">Order Placed</code></li>
+                <li><strong>URL du webhook</strong> : <code class="code-inline">https://webhookwoocommerce-adydmsmlpa-uc.a.run.app</code></li>
+                <li><strong>Format</strong> : <code class="code-inline">JSON</code></li>
+            </ul>
+
+            <h4>Étape 3 : Sauvegarder et tester</h4>
+            <ol>
+                <li>Cliquez sur <strong>"Enregistrer"</strong></li>
+                <li>Passez une commande test sur votre site Wix</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2><span class="emoji">🛡️</span> Sécurité et bonnes pratiques</h2>
+
+            <h3><span class="emoji">✅</span> Règles générales</h3>
+            <ul>
+                <li><span class="emoji">🔒</span> Utilisez toujours des permissions <strong>Lecture seule</strong></li>
+                <li><span class="emoji">🏷️</span> Donnez des noms descriptifs à vos clés/tokens</li>
+                <li><span class="emoji">🔐</span> Utilisez HTTPS (obligatoire pour toutes les plateformes)</li>
+                <li><span class="emoji">🗑️</span> Révoquez les accès que vous n'utilisez plus</li>
+                <li><span class="emoji">👤</span> Créez des comptes dédiés avec permissions limitées</li>
+            </ul>
+
+            <h3><span class="emoji">❌</span> À éviter absolument</h3>
+            <div class="section-box danger-box">
+                <ul>
+                    <li><span class="emoji">🚫</span> Ne partagez jamais vos clés API/tokens</li>
+                    <li><span class="emoji">🚫</span> Ne commitez pas vos clés dans Git</li>
+                    <li><span class="emoji">🚫</span> N'utilisez pas les permissions "Écriture" si pas nécessaire</li>
+                    <li><span class="emoji">🚫</span> Ne créez pas d'accès avec permissions trop larges</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">🔄</span> Gérer vos accès par plateforme</h2>
+
+            <h3><span class="emoji">🛒</span> WooCommerce</h3>
+            <ul>
+                <li><strong>Voir les clés</strong> : WooCommerce → Paramètres → Avancé → REST API</li>
+                <li><strong>Révoquer</strong> : Cliquez sur "Révoquer" à côté de la clé</li>
+                <li><strong>Régénérer</strong> : Supprimez l'ancienne et créez-en une nouvelle</li>
+            </ul>
+
+            <h3><span class="emoji">🛍️</span> Shopify</h3>
+            <ul>
+                <li><strong>Voir les apps</strong> : Paramètres → Applications et canaux de vente</li>
+                <li><strong>Révoquer</strong> : Supprimez l'application ou régénérez la clé</li>
+                <li><strong>Permissions</strong> : Modifiez les accès dans la configuration de l'app</li>
+            </ul>
+
+            <h3><span class="emoji">🎨</span> Wix</h3>
+            <ul>
+                <li><strong>Voir les apps</strong> : Centre de développement → Applications</li>
+                <li><strong>Révoquer</strong> : Supprimez l'application ou régénérez les tokens</li>
+                <li><strong>Permissions</strong> : Modifiez les droits API de l'application</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="emoji">❓</span> Dépannage par plateforme</h2>
+
+            <h3><span class="emoji">🔐</span> Erreurs d'authentification communes</h3>
+
+            <h4>"Authentification échouée (401)"</h4>
+            <p><strong>Toutes plateformes :</strong></p>
+            <ul>
+                <li>Vérifiez que les clés/tokens sont corrects (sans espaces)</li>
+                <li>Assurez-vous que l'accès n'a pas été révoqué</li>
+                <li>Vérifiez les permissions (doit inclure la lecture)</li>
+            </ul>
+
+            <h4>"L'URL doit utiliser HTTPS"</h4>
+            <p><strong>Toutes plateformes :</strong></p>
+            <ul>
+                <li>Installez un certificat SSL</li>
+                <li>Forcez HTTPS dans vos paramètres</li>
+                <li>Let's Encrypt offre des certificats gratuits</li>
+            </ul>
+
+            <h3><span class="emoji">🛒</span> WooCommerce spécifique</h3>
+
+            <h4>"REST API non disponible"</h4>
+            <ul>
+                <li>Vérifiez que WooCommerce est installé et activé</li>
+                <li>Assurez-vous d'être administrateur</li>
+                <li>Mettez à jour WooCommerce si nécessaire</li>
+            </ul>
+
+            <h4>"QR code ne fonctionne pas"</h4>
+            <ul>
+                <li>Vérifiez que l'URL de la boutique est correcte</li>
+                <li>Assurez-vous que le QR code WooCommerce est au format <code class="code-inline">ck_...|cs_...</code></li>
+                <li>Utilisez la saisie manuelle en fallback</li>
+            </ul>
+
+            <h3><span class="emoji">🛍️</span> Shopify spécifique</h3>
+
+            <h4>"API permissions insuffisantes"</h4>
+            <ul>
+                <li>Vérifiez que l'app a les droits "read_orders"</li>
+                <li>Régénérez la clé API Admin si nécessaire</li>
+            </ul>
+
+            <h4>"Boutique non trouvée"</h4>
+            <ul>
+                <li>Vérifiez l'URL (doit finir par <code class="code-inline">.myshopify.com</code>)</li>
+                <li>Assurez-vous que la boutique est active</li>
+            </ul>
+
+            <h3><span class="emoji">🎨</span> Wix spécifique</h3>
+
+            <h4>"Access Token expiré"</h4>
+            <ul>
+                <li>Régénérez un nouveau token dans le Centre de développement</li>
+                <li>Mettez à jour les trois valeurs (Account ID, Site ID, Token)</li>
+            </ul>
+
+            <h4>"API Stores non activée"</h4>
+            <ul>
+                <li>Activez l'API Stores dans la configuration de l'app</li>
+                <li>Vérifiez que le plan Wix permet l'API</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="emoji">📱</span> Fonctionnalités WooNotif par plateforme</h2>
+
+            <h3><span class="emoji">🛒</span> WooCommerce</h3>
+            <ul>
+                <li><span class="emoji">✅</span> QR codes pour saisie rapide des clés API</li>
+                <li><span class="emoji">✅</span> Support complet des webhooks</li>
+                <li><span class="emoji">✅</span> Toutes les versions de WooCommerce</li>
+            </ul>
+
+            <h3><span class="emoji">🛍️</span> Shopify</h3>
+            <ul>
+                <li><span class="emoji">✅</span> Clés API Admin sécurisées</li>
+                <li><span class="emoji">✅</span> Webhooks temps réel</li>
+                <li><span class="emoji">✅</span> Support de toutes les boutiques Shopify</li>
+            </ul>
+
+            <h3><span class="emoji">🎨</span> Wix</h3>
+            <ul>
+                <li><span class="emoji">✅</span> Tokens d'accès sécurisés</li>
+                <li><span class="emoji">✅</span> Webhooks intégrés</li>
+                <li><span class="emoji">✅</span> Support des boutiques Wix e-commerce</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="emoji">🔗</span> Ressources utiles</h2>
+
+            <h3><span class="emoji">🛒</span> WooCommerce</h3>
+            <ul>
+                <li><a href="https://woocommerce.github.io/woocommerce-rest-api-docs/" target="_blank" rel="noopener">Documentation REST API</a></li>
+                <li><a href="https://woocommerce.com/document/webhooks/" target="_blank" rel="noopener">Guide des webhooks</a></li>
+                <li><a href="https://woocommerce.com/document/woocommerce-security/" target="_blank" rel="noopener">Sécurité WooCommerce</a></li>
+            </ul>
+
+            <h3><span class="emoji">🛍️</span> Shopify</h3>
+            <ul>
+                <li><a href="https://shopify.dev/docs/api/admin-rest" target="_blank" rel="noopener">Documentation API Admin</a></li>
+                <li><a href="https://shopify.dev/docs/api/admin-rest/2023-10/resources/webhook" target="_blank" rel="noopener">Guide des webhooks</a></li>
+                <li><a href="https://shopify.dev/docs/apps/build/custom-apps" target="_blank" rel="noopener">Créer une app personnalisée</a></li>
+            </ul>
+
+            <h3><span class="emoji">🎨</span> Wix</h3>
+            <ul>
+                <li><a href="https://dev.wix.com/" target="_blank" rel="noopener">Centre de développement</a></li>
+                <li><a href="https://dev.wix.com/docs/rest/api-reference/stores" target="_blank" rel="noopener">API Stores</a></li>
+                <li><a href="https://dev.wix.com/docs/develop-your-site/webhooks" target="_blank" rel="noopener">Guide des webhooks</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><span class="emoji">🧪</span> Tester vos connexions</h2>
+
+            <h3>WooCommerce (avec curl)</h3>
+            <div class="code-block">curl -u "ck_votre_cle:cs_votre_secret" \
+  https://votre-boutique.com/wp-json/wc/v3/orders?per_page=1</div>
+
+            <h3>Shopify (avec curl)</h3>
+            <div class="code-block">curl -H "X-Shopify-Access-Token: votre_token" \
+  https://votre-boutique.myshopify.com/admin/api/2023-10/orders.json?limit=1</div>
+
+            <h3>Wix (avec curl)</h3>
+            <div class="code-block">curl -X POST "https://www.wixapis.com/ecom/v1/orders/search" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer votre_access_token" \
+  -H "wix-account-id: votre_account_id" \
+  -H "wix-site-id: votre_site_id" \
+  -d '{
+    "query": {
+      "filter": {},
+      "sort": [{"fieldName": "createdDate", "order": "DESC"}],
+      "paging": {"limit": 1}
+    }
+  }'</div>
+
+            <div class="section-box success-box">
+                <p><strong>Si vous recevez des données JSON, votre configuration fonctionne !</strong> <span class="emoji">✅</span></p>
+            </div>
+        </section>
+
+        <section>
+            <h2><span class="emoji">❓</span> Questions fréquentes (FAQ)</h2>
+
+            <h3><span class="emoji">🤔</span> Puis-je utiliser WooNotif si je ne suis pas propriétaire de la boutique ?</h3>
+            <div class="section-box">
+                <p>
+                    <strong>Oui !</strong> Les collaborateurs et livreurs peuvent utiliser WooNotif. Demandez simplement au propriétaire de la boutique de suivre ce guide pour créer les clés API et configurer les webhooks. Une fois configuré, vous pourrez ajouter la boutique dans votre application WooNotif.
+                </p>
+            </div>
+
+            <h3><span class="emoji">🔒</span> Mes données sont-elles sécurisées ?</h3>
+            <div class="section-box success-box">
+                <p>
+                    <strong>Absolument.</strong> WooNotif utilise uniquement des permissions de <strong>lecture</strong> et ne peut ni modifier ni supprimer vos données. Toutes les communications sont chiffrées (HTTPS) et vos clés API sont stockées de manière sécurisée dans l'application.
+                </p>
+            </div>
+
+            <h3><span class="emoji">💰</span> Les webhooks sont-ils payants ?</h3>
+            <div class="section-box success-box">
+                <p>
+                    <strong>Non.</strong> Les webhooks sont une fonctionnalité gratuite proposée par WooCommerce, Shopify et Wix. Ils permettent simplement à WooNotif de recevoir des notifications en temps réel sans vérifications périodiques.
+                </p>
+            </div>
+
+            <h3><span class="emoji">📱</span> Que faire si je n'arrive pas à configurer les webhooks ?</h3>
+            <div class="section-box">
+                <p>
+                    <strong>Pas de panique !</strong> WooNotif fonctionne parfaitement sans webhooks. L'application vérifiera automatiquement les nouvelles commandes toutes les 15 minutes. Les webhooks améliorent seulement la réactivité des notifications.
+                </p>
+            </div>
+
+            <h3><span class="emoji">🔄</span> Puis-je connecter plusieurs boutiques ?</h3>
+            <div class="section-box success-box">
+                <p>
+                    <strong>Oui !</strong> WooNotif permet de connecter autant de boutiques que vous souhaitez. Répétez simplement le processus de configuration pour chaque boutique.
+                </p>
+            </div>
+
+            <h3><span class="emoji">🚫</span> Que faire si je change de téléphone ?</h3>
+            <div class="section-box warning-box">
+                <p>
+                    <strong>Vos boutiques devront être reconfigurées</strong> car les connexions aux stores sont stockées localement sur votre téléphone.
+                </p>
+                <p>Cependant :</p>
+                <ul>
+                    <li><span class="emoji">✅</span> Votre <strong>statut premium</strong> sera automatiquement restauré si vous vous connectez avec le même compte Google Play</li>
+                    <li><span class="emoji">✅</span> Vos <strong>données utilisateur</strong> (ID haché) sont sécurisées sur nos serveurs</li>
+                    <li><span class="emoji">🔄</span> Vous devrez <strong>rajouter chaque boutique</strong> manuellement sur le nouveau téléphone en répétant le processus de configuration (clé API + webhooks)</li>
+                </ul>
+            </div>
+
+            <h3><span class="emoji">🆘</span> Je rencontre une erreur, que faire ?</h3>
+            <ol>
+                <li>Vérifiez que votre clé API est correcte (sans espaces)</li>
+                <li>Assurez-vous que votre boutique utilise HTTPS</li>
+                <li>Consultez la section "Dépannage par plateforme" ci-dessus</li>
+                <li>Testez votre connexion avec les commandes curl fournies</li>
+                <li>Contactez le support WooNotif si le problème persiste</li>
+            </ol>
+        </section>
+
+        <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
+
+        <p style="text-align: center; color: #777; font-size: 0.9em;">
+            <strong>💡 Besoin d'aide ?</strong> Consultez la documentation de WooNotif ou contactez le support.
+        </p>
+    </div>
+</body>
+</html>
