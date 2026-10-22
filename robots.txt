@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Disallow: /.well-known/
+Disallow: /.git/
+
+Sitemap: https://l-issam.github.io/woonotif/sitemap.xml

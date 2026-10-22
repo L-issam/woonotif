@@ -126,10 +126,11 @@
 </head>
 <body>
     <div class="container">
+        <p style="margin-bottom: 1rem;"><a href="index.html">← Accueil WooNotif</a></p>
         <h1>Politique de Confidentialité - WooNotif</h1>
         
         <div class="last-updated">
-            <strong>Dernière mise à jour :</strong> 30 novembre 2024
+            <strong>Dernière mise à jour :</strong> 22 octobre 2026
         </div>
         
         <h2>Introduction</h2>
@@ -139,13 +140,15 @@
         
         <h2>Légitimité de l'application</h2>
         <p>
-            WooNotif a été développée pour répondre à un besoin réel : permettre aux collaborateurs de suivre les commandes WooCommerce sans installer de plugins lourds comme Jetpack. Cette application est une solution testée en conditions réelles, créée pour simplifier la gestion des commandes depuis un appareil mobile.
+            WooNotif a été développée pour répondre à un besoin réel : permettre aux marchands et collaborateurs de suivre les commandes WooCommerce, Shopify ou Wix sans installer de plugins lourds comme Jetpack. Cette application est une solution testée en conditions réelles, créée pour simplifier la gestion des commandes depuis un appareil mobile.
         </p>
         
         <h2>Informations que nous collectons</h2>
         
         <div class="last-updated" style="background-color: #fff3cd; border-left-color: #ffc107;">
-            <strong>⚠️ Important :</strong> Nous ne stockons <strong>aucune information</strong> sur un serveur distant, que ce soit chez nous ou chez n'importe quel tiers. Toutes les données collectées sont stockées <strong>uniquement sur votre appareil</strong> dans le stockage local sécurisé.
+            <strong>Important :</strong> Les clés API et la plupart des données de commandes restent <strong>sur votre appareil</strong>.
+            Les notifications push passent par des Cloud Functions / Firebase (identifiants d’appareil / tokens, pas le détail client dans le payload).
+            Avec le plan Pro, les commentaires peuvent être synchronisés sur le cloud pour le même compte, et les invitations d’équipe utilisent Firestore.
         </div>
         
         <h3>Informations d'authentification</h3>
@@ -170,40 +173,6 @@
             <li>Préférences de notification</li>
             <li>Données de diagnostic anonymes (en cas d'erreurs)</li>
         </ul>
-
-        <h3>Données Firebase (pour les notifications push)</h3>
-        <div class="last-updated" style="background-color: #e8f5e9; border-left-color: #4caf50;">
-            <strong>✅ Anonymes et fonctionnelles :</strong> Ces données sont nécessaires uniquement pour les notifications push (premium ou gratuit).
-        </div>
-
-        <h4>Tableau user_tokens</h4>
-        <p>Stocke les informations de notification pour chaque utilisateur :</p>
-        <ul>
-            <li><strong>expoPushToken</strong> : Token Expo pour envoyer les notifications push</li>
-            <li><strong>platform</strong> : Plateforme ("expo")</li>
-            <li><strong>updatedAt</strong> : Date de dernière mise à jour du token</li>
-            <li><strong>userId</strong> : Identifiant unique généré localement (UUID anonyme)</li>
-        </ul>
-
-        <h4>Tableau store_subscriptions</h4>
-        <p>Stocke les abonnements aux notifications par boutique (activé uniquement si vous choisissez de recevoir des notifications) :</p>
-        <ul>
-            <li><strong>active</strong> : Statut de l'abonnement (true/false)</li>
-            <li><strong>createdAt</strong> : Date de création de l'abonnement</li>
-            <li><strong>storeId</strong> : Identifiant unique de la boutique (généré localement)</li>
-            <li><strong>storeUrl</strong> : URL anonymisée de la boutique (hashée pour la confidentialité)</li>
-            <li><strong>userId</strong> : Identifiant unique de l'utilisateur (UUID anonyme)</li>
-        </ul>
-
-        <p>
-            <strong>Ces données sont :</strong>
-        </p>
-        <ul>
-            <li>Générées automatiquement et localement sur votre appareil</li>
-            <li>Complètement anonymes (pas de nom, email, ou données personnelles)</li>
-            <li>Utilisées uniquement pour les notifications push (pas pour le tracking ou la publicité)</li>
-            <li>Supprimées automatiquement si vous désactivez les notifications</li>
-        </ul>
         
         <h2>Comment nous utilisons vos informations</h2>
         
@@ -212,27 +181,32 @@
             <li><span class="check">✓</span> <strong>Affichage des commandes</strong> : Pour vous permettre de visualiser vos commandes WooCommerce</li>
             <li><span class="check">✓</span> <strong>Notifications</strong> : Pour vous alerter des nouvelles commandes (si activé)</li>
             <li><span class="check">✓</span> <strong>Authentification</strong> : Pour se connecter à votre API WooCommerce de manière sécurisée</li>
-            <li><span class="check">✓</span> <strong>Notifications Push</strong> : Gestion technique des tokens et abonnements (données anonymes uniquement)</li>
         </ul>
         
         <h3>Ce que nous ne faisons PAS</h3>
         <ul>
-            <li><span class="cross">✗</span> Nous ne collectons PAS vos données en dehors de votre appareil</li>
             <li><span class="cross">✗</span> Nous ne vendons PAS vos données à des tiers</li>
-            <li><span class="cross">✗</span> Nous n'envoyons PAS vos identifiants à nos serveurs</li>
+            <li><span class="cross">✗</span> Nous n'envoyons PAS vos clés API (CK/CS, tokens boutique) vers Firebase pour les stocker</li>
             <li><span class="cross">✗</span> Nous n'accédons PAS à votre boutique sans votre autorisation explicite</li>
+            <li><span class="cross">✗</span> Nous ne modifions PAS produits, prix ou réglages — l’écriture de statut commande n’existe qu’en Pro avec clé write opt-in</li>
         </ul>
         
         <h2>Stockage et sécurité</h2>
         
-        <h3>Stockage local</h3>
+        <h3>Stockage local et cloud limité</h3>
         <p>
-            Toutes vos informations sont stockées <strong>uniquement sur votre appareil</strong> :
+            Sur l’appareil :
         </p>
         <ul>
-            <li>Les identifiants API sont chiffrés et stockés localement</li>
-            <li>Aucune donnée n'est synchronisée avec nos serveurs</li>
-            <li>Vous pouvez supprimer toutes les données en désinstallant l'application</li>
+            <li>Les identifiants API sont stockés localement</li>
+            <li>Vous pouvez supprimer les données locales en désinstallant l'application ou en réinitialisant ses données</li>
+        </ul>
+        <p>
+            Sur l’infrastructure Firebase / Cloud Functions (nécessaire au service) :
+        </p>
+        <ul>
+            <li>Abonnements aux notifications (tokens push, URL boutique pour le routage webhook)</li>
+            <li>En Pro : commentaires synchronisés et métadonnées d’équipe / invitations</li>
         </ul>
         
         <h3>Sécurité</h3>
@@ -285,7 +259,7 @@
         
         <h2>Cookies et technologies de suivi</h2>
         <p>
-            L'application n'utilise pas de cookies ni de technologies de suivi tierces. Toutes les communications se font directement entre votre appareil et votre boutique WooCommerce.
+            L'application n'utilise pas de cookies web. Les communications commandes se font principalement entre votre appareil et votre boutique (WooCommerce, Shopify ou Wix) via HTTPS ; les push et certaines fonctions Pro passent aussi par Firebase / Google Cloud.
         </p>
         
         <h2>Publicités (Google Ads)</h2>
@@ -298,57 +272,15 @@
             <li>Vous pouvez désactiver la personnalisation des publicités dans les paramètres de votre appareil</li>
         </ul>
         
-        <h2>Plan Premium</h2>
-
-        <h3>Achat du plan premium</h3>
-        <p>
-            WooNotif propose un plan premium optionnel (0,99 €/mois ou 9,49 €/an) pour supprimer les publicités et soutenir le développement.
-        </p>
-        <ul>
-            <li><strong>Achat via Google Play</strong> : Les achats sont gérés exclusivement par Google Play Store</li>
-            <li><strong>Pas de données personnelles</strong> collectées pour les achats premium</li>
-            <li><strong>Restauration automatique</strong> des achats sur tous vos appareils connectés au même compte Google</li>
-        </ul>
-
-        <h3>Données Firebase pour les notifications</h3>
-        <p>
-            Pour envoyer des notifications push (fonctionnement gratuit ou premium), nous utilisons Firebase/Firestore avec des données minimales et anonymes stockées dans deux tableaux :
-        </p>
-
-        <h4>user_tokens</h4>
-        <ul>
-            <li><strong>expoPushToken</strong> : Token technique pour les notifications</li>
-            <li><strong>platform</strong> : Plateforme de notification</li>
-            <li><strong>updatedAt</strong> : Date de mise à jour</li>
-            <li><strong>userId</strong> : UUID anonyme généré localement</li>
-        </ul>
-
-        <h4>store_subscriptions</h4>
-        <ul>
-            <li><strong>active</strong> : Statut de l'abonnement aux notifications</li>
-            <li><strong>createdAt</strong> : Date de création</li>
-            <li><strong>storeId</strong> : ID unique de boutique</li>
-            <li><strong>storeUrl</strong> : URL hashée pour confidentialité</li>
-            <li><strong>userId</strong> : UUID anonyme de l'utilisateur</li>
-        </ul>
-
-        <p>
-            Ces données sont <strong>anonymes et générées localement</strong> sur votre appareil. Elles ne contiennent aucune information personnelle identifiable et servent uniquement aux notifications push.
-        </p>
-
-        <div class="last-updated" style="background-color: #fff3cd; border-left-color: #ffc107;">
-            <strong>🔒 Sécurité Firebase :</strong> Toutes les données Firebase sont chiffrées en transit et au repos, et nous n'avons accès qu'aux données nécessaires au fonctionnement du service premium.
-        </div>
-
         <h2>Partage avec des tiers</h2>
         <p>
-            Nous ne partageons vos données avec aucun tiers, sauf :
+            Nous ne vendons vos données à aucun tiers. Des prestataires techniques interviennent pour le service :
         </p>
         <ul>
-            <li><strong>Google Play Store</strong> : Gestion des achats premium (pas de données personnelles)</li>
-            <li><strong>Google AdMob</strong> : Uniquement pour les publicités (données anonymes)</li>
-            <li><strong>Firebase/Firestore</strong> : Données anonymes pour les notifications push (user_tokens et store_subscriptions)</li>
-            <li><strong>Votre boutique WooCommerce</strong> : Directement via l'API REST (données que vous contrôlez)</li>
+            <li><strong>Google AdMob</strong> : publicités (utilisateurs non Pro)</li>
+            <li><strong>Google Play Billing</strong> : achats d’abonnement Pro</li>
+            <li><strong>Firebase / Google Cloud</strong> : push, webhooks, sync Pro / équipe</li>
+            <li><strong>Votre boutique</strong> : WooCommerce, Shopify ou Wix via leurs API (données que vous contrôlez)</li>
         </ul>
         
         <h2>Conservation des données</h2>
@@ -356,8 +288,8 @@
             Vos données sont conservées :
         </p>
         <ul>
-            <li><strong>Sur votre appareil</strong> : Jusqu'à ce que vous supprimiez l'application ou réinitialisiez les données</li>
-            <li><strong>Aucune donnée</strong> n'est conservée sur nos serveurs (nous n'en avons pas)</li>
+            <li><strong>Sur votre appareil</strong> : jusqu’à désinstallation ou réinitialisation</li>
+            <li><strong>Sur Firebase</strong> : tokens / abonnements push et, en Pro, commentaires sync et memberships — jusqu’à suppression du compte / désabonnement / demande de suppression (voir aussi la page suppression des données)</li>
         </ul>
         
         <h2>Modifications de cette politique</h2>
@@ -386,7 +318,7 @@
                 Pour toute question concernant cette politique de confidentialité ou vos données :
             </p>
             <p>
-                <strong>Email :</strong> <a href="mailto:sslaouane@gmail.com">Me contacter</a><br>
+                <strong>Email :</strong> <a href="mailto:sslaouane@gmail.com">sslaouane@gmail.com</a><br>
                 <strong>Boutique :</strong> <a href="https://taghazit.com" target="_blank" rel="noopener">taghazit.com</a>
             </p>
         </div>
@@ -399,8 +331,11 @@
         <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
         
         <p style="text-align: center; color: #777; font-size: 0.9em;">
-            <strong>Note importante :</strong> Cette application fonctionne comme un client pour votre boutique WooCommerce. Toutes les données restent sous votre contrôle et sont stockées uniquement sur votre appareil. Nous n'avons aucun accès à vos données.
+            <a href="index.html">← Accueil WooNotif</a> ·
+            <a href="data-deletion.html">Suppression des données</a> ·
+            <a href="guide-api-webhook.html">Guide API</a>
         </p>
     </div>
 </body>
 </html>
+

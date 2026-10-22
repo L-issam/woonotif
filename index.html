@@ -3,521 +3,511 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="WooNotif - Application mobile multi-plateforme pour suivre vos commandes e-commerce (WooCommerce, Shopify, Wix) en temps réel.">
-    <title>WooNotif - Suivi multi-plateformes des commandes e-commerce</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: radial-gradient(circle at top, #e3f2fd, #f5f5f5);
-            padding: 20px;
-        }
+    <title>WooNotif — Notifications commandes WooCommerce, Shopify &amp; Wix</title>
+    <meta name="description" content="Recevez vos commandes WooCommerce, Shopify et Wix en push sur Android. Boutiques illimitées en gratuit. Pro : statut, récap du jour, historique, 1 collaborateur inclus.">
+    <meta name="keywords" content="notification commande WooCommerce, Shopify order alert, Wix stores notification, suivi commandes Android, COD livraison, export PDF CSV commandes">
+    <link rel="canonical" href="https://l-issam.github.io/woonotif/">
+    <link rel="icon" href="assets/images/WooNotif-app-icon.png" type="image/png">
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://l-issam.github.io/woonotif/">
+    <meta property="og:title" content="WooNotif — Ne ratez plus une commande">
+    <meta property="og:description" content="Push temps réel pour WooCommerce, Shopify et Wix. Gratuit avec boutiques illimitées. Pro pour piloter le statut, le jour et un collaborateur.">
+    <meta property="og:image" content="https://l-issam.github.io/woonotif/banner.png">
+    <meta property="og:image:width" content="1024">
+    <meta property="og:image:height" content="500">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="WooNotif">
 
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://l-issam.github.io/woonotif/">
+    <meta name="twitter:title" content="WooNotif — Notifications e-commerce sur Android">
+    <meta name="twitter:description" content="WooCommerce, Shopify, Wix : alertes de commandes, actions terrain, Pro pour le statut et l’équipe.">
+    <meta name="twitter:image" content="https://l-issam.github.io/woonotif/banner.png">
 
-        h1 {
-            font-size: 2.2em;
-            color: #1a237e;
-            margin-bottom: 10px;
-        }
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="WooNotif">
+    <meta name="language" content="French">
 
-        .subtitle {
-            font-size: 1.05em;
-            color: #546e7a;
-        }
-
-        h2 {
-            color: #263238;
-            margin-top: 30px;
-            margin-bottom: 12px;
-            font-size: 1.4em;
-        }
-
-        h3 {
-            color: #37474f;
-            margin-top: 20px;
-            margin-bottom: 8px;
-            font-size: 1.15em;
-        }
-
-        p {
-            margin-bottom: 12px;
-            text-align: justify;
-        }
-
-        ul {
-            margin-left: 25px;
-            margin-bottom: 12px;
-        }
-
-        li {
-            margin-bottom: 6px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 4px 10px;
-            font-size: 0.8em;
-            border-radius: 999px;
-            background-color: #e3f2fd;
-            color: #1e88e5;
-            margin-left: 8px;
-        }
-
-        .section-box {
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            padding: 18px 20px;
-            margin-top: 10px;
-            border-left: 4px solid #1e88e5;
-        }
-
-        .future-box {
-            background-color: #fff3e0;
-            border-left-color: #fb8c00;
-        }
-
-        .links {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        a {
-            color: #1e88e5;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .links ul {
-            list-style: none;
-            margin-left: 0;
-        }
-
-        .links li {
-            margin-bottom: 8px;
-        }
-
-        .small {
-            font-size: 0.9em;
-            color: #78909c;
-            margin-top: 15px;
-            text-align: center;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 24px;
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "WooNotif",
+        "description": "Application Android pour suivre les commandes WooCommerce, Shopify et Wix avec notifications push, actions terrain et plan Pro (statut, récap, 1 collaborateur inclus).",
+        "url": "https://l-issam.github.io/woonotif/",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Android",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Gratuit",
+                "price": "0",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock"
+            },
+            {
+                "@type": "Offer",
+                "name": "Pro mensuel",
+                "price": "8.99",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://play.google.com/store/apps/details?id=com.woonotifs.app"
+            },
+            {
+                "@type": "Offer",
+                "name": "Pro annuel",
+                "price": "79.99",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://play.google.com/store/apps/details?id=com.woonotifs.app"
             }
-
-            h1 {
-                font-size: 1.7em;
-            }
+        ],
+        "featureList": [
+            "Notifications push via webhooks",
+            "WooCommerce, Shopify et Wix",
+            "Boutiques illimitées en gratuit",
+            "Appel, WhatsApp, Maps et templates",
+            "Écriture de statut Pro",
+            "Récap du jour et historique Pro",
+            "1 collaborateur inclus avec Pro"
+        ],
+        "screenshot": [
+            "https://l-issam.github.io/woonotif/assets/images/woonotif-screen-1.jpg",
+            "https://l-issam.github.io/woonotif/assets/images/woonotif-screen-2.jpg"
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "WooNotif"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "WooNotif"
         }
-    </style>
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "WooNotif",
+        "url": "https://l-issam.github.io/woonotif/",
+        "description": "Landing officielle WooNotif — notifications de commandes e-commerce sur Android.",
+        "inLanguage": "fr-FR",
+        "publisher": {
+            "@type": "Organization",
+            "name": "WooNotif"
+        }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Faut-il un webhook pour les notifications ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Les webhooks sont optionnels mais fortement recommandés. Avec un webhook, le push arrive dès qu’une commande est créée. Sans webhook, l’OS limite fortement le travail en arrière-plan : vous risquez de manquer des alertes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "L’application modifie-t-elle mes commandes ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Par défaut, WooNotif se connecte en lecture seule. Le changement de statut sur la boutique (fiche, lot, action depuis la notif) est réservé au plan Pro avec une clé API lecture/écriture opt-in. Les produits, prix et réglages ne sont jamais modifiés."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Que contient le plan Pro ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pro (8,99 €/mois ou 79,99 €/an) inclut l’écriture de statut, l’écran Aujourd’hui et le récap, l’historique des terminées, horaires silencieux et widget, sync des commentaires, règles de notif optionnelles, sans publicités, et 1 collaborateur inclus via invitation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Puis-je ajouter plusieurs collaborateurs ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Le plan Pro inclut un siège collaborateur à remplir par invitation, sans partager vos clés API. Les sièges supplémentaires payants ne sont pas encore en vente sur Google Play."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Où sont stockées mes données ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Les clés API et la plupart des données de commandes restent sur l’appareil. Les notifications push passent par des Cloud Functions / Firebase. En Pro, les commentaires peuvent être synchronisés sur le cloud pour le même compte. Voir la politique de confidentialité."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="assets/images/splash.png" alt="WooNotif" style="width:100%; height:270px; object-fit:cover; object-position:center; border-radius:8px; margin-bottom:20px;">
-            <h1>WooNotif</h1>
-            <p class="subtitle">
-                Suivez vos commandes e-commerce en temps réel sur WooCommerce, Shopify, Wix et plus encore.
-            </p>
-        </header>
-
-        <section>
-            <h2>Qu'est-ce que WooNotif ?</h2>
-            <div class="section-box">
-                <p>
-                    <strong>WooNotif</strong> est une application mobile multi-plateforme pensée pour les propriétaires
-                    de boutiques e-commerce qui veulent suivre leurs commandes en temps réel, directement depuis leur smartphone.
-                </p>
-                <ul>
-                    <li>Support de <strong>plusieurs plateformes</strong> : WooCommerce, Shopify, Wix et bientôt d'autres</li>
-                    <li>Gestion de <strong>plusieurs boutiques</strong> dans la même application</li>
-                    <li>Notifications push pour les nouvelles commandes (si activées)</li>
-                    <li>Vue détaillée des commandes avec informations clients</li>
-                    <li>Commentaires locaux pour suivre vos actions sur les commandes</li>
-                    <li>Export CSV des commandes sélectionnées</li>
+    <header class="header">
+        <nav class="nav" aria-label="Navigation principale">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/WooNotif-app-icon.png" alt="" class="logo-icon" width="44" height="44">
+                    <span class="logo-text">WooNotif</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#features">Fonctionnalités</a></li>
+                    <li><a href="#pricing">Pro</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="guide-api-webhook.html">Guide</a></li>
+                    <li><a href="privacy-policy.html">Confidentialité</a></li>
                 </ul>
-                <p>
-                    L'application ne stocke aucune donnée sur des serveurs distants : tout reste sur votre appareil.
-                    Les commandes ne sont <strong>jamais modifiées</strong> sur vos boutiques en ligne.
-                </p>
+                <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.woonotifs.app" target="_blank" rel="noopener">Télécharger</a>
+                <button class="hamburger" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="mobile-menu">
+                    <ul>
+                        <li><a href="#features">Fonctionnalités</a></li>
+                        <li><a href="#pricing">Pro</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="guide-api-webhook.html">Guide</a></li>
+                        <li><a href="privacy-policy.html">Confidentialité</a></li>
+                        <li><a href="https://play.google.com/store/apps/details?id=com.woonotifs.app" target="_blank" rel="noopener">Télécharger</a></li>
+                    </ul>
+                </div>
             </div>
-        </section>
+        </nav>
+    </header>
 
-        <section>
-            <h2>Comment obtenir vos clés API</h2>
-            
-            <div class="section-box">
-                <p>
-                    <strong>Guide complet disponible :</strong> Consultez notre <a href="guide-api-webhook.html">guide détaillé de configuration API</a> pour WooCommerce, Shopify et Wix avec captures d'écran et instructions étape par étape.
-                </p>
-            </div>
-            <div class="section-box">
-                <p>
-                    WooNotif supporte plusieurs plateformes e-commerce. Voici comment obtenir vos clés API pour chacune :
-                </p>
-
-                <h3>🛒 WooCommerce</h3>
-                <h4>1. Se connecter à votre interface WordPress</h4>
-                <ul>
-                    <li>Connectez-vous à l'administration de votre site WordPress (compte administrateur).</li>
-                    <li>Assurez-vous que le plugin <strong>WooCommerce</strong> est installé et actif.</li>
-                </ul>
-
-                <h4>2. Accéder aux clés API WooCommerce</h4>
-                <ul>
-                    <li>Dans le menu WordPress, allez dans <strong>WooCommerce &gt; Paramètres</strong>.</li>
-                    <li>Ouvrez l'onglet <strong>Avancé</strong>.</li>
-                    <li>Cliquez sur <strong>REST API</strong> puis sur <strong>Ajouter une clé</strong>.</li>
-                </ul>
-
-                <h4>3. Créer une clé en mode lecture seule</h4>
-                <ul>
-                    <li>Donnez un nom à la clé (par exemple : <em>WooNotif</em>).</li>
-                    <li>Sélectionnez l'utilisateur propriétaire de la boutique.</li>
-                    <li>Dans <strong>Autorisations</strong>, choisissez <strong>Lecture</strong> uniquement.</li>
-                    <li>Cliquez sur <strong>Générer une clé API</strong>.</li>
-                </ul>
-
-                <h4>4. Récupérer les identifiants</h4>
-                <ul>
-                    <li>Copiez la <strong>Consumer Key (ck_...)</strong>.</li>
-                    <li>Copiez la <strong>Consumer Secret (cs_...)</strong>.</li>
-                    <li>Renseignez ces valeurs dans WooNotif.</li>
-                </ul>
-
-                <h3>🛍️ Shopify</h3>
-                <h4>1. Accéder aux paramètres de l'API</h4>
-                <ul>
-                    <li>Connectez-vous à votre interface d'administration Shopify.</li>
-                    <li>Allez dans <strong>Paramètres &gt; Applications et canaux de vente</strong>.</li>
-                    <li>Cliquez sur <strong>Développer des applications</strong>.</li>
-                </ul>
-
-                <p style="text-align:center; margin: 10px 0 20px;">
-                    <img src="assets/images/shopify-apikey-1.png" alt="Accès aux paramètres API Shopify" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                </p>
-
-                <h4>2. Créer une application personnalisée</h4>
-                <ul>
-                    <li>Cliquez sur <strong>Créer une application</strong>.</li>
-                    <li>Donnez un nom à votre application (ex: <em>WooNotif</em>).</li>
-                    <li>Configurez les permissions en lecture seule pour les commandes.</li>
-                    <li>Générez et copiez la <strong>clé d'API Admin</strong>.</li>
-                </ul>
-
-                <p style="text-align:center; margin: 10px 0 20px;">
-                    <img src="assets/images/shopify-apikey-2.png" alt="Création d'une application Shopify et récupération de la clé API" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                </p>
-
-                <h3>🎨 Wix</h3>
-                <h4>1. Accéder au Wix Developer Center</h4>
-                <ul>
-                    <li>Connectez-vous à votre compte Wix.</li>
-                    <li>Allez dans <strong>Développeur &gt; Centre de développement</strong>.</li>
-                    <li>Créez une nouvelle application ou utilisez une existante.</li>
-                </ul>
-
-                <p style="text-align:center; margin: 10px 0 20px;">
-                    <img src="assets/images/wix-apikey-1.png" alt="Accès au Centre de développement Wix" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                </p>
-
-                <h4>2. Configurer l'application Wix</h4>
-                <ul>
-                    <li>Activez l'API Stores avec les permissions de lecture.</li>
-                    <li>Générez un token d'accès avec les droits appropriés.</li>
-                    <li>Copiez l'<strong>Account ID</strong>, <strong>Site ID</strong> et <strong>Access Token</strong>.</li>
-                </ul>
-
-                <p style="text-align:center; margin: 10px 0 20px;">
-                    <img src="assets/images/wix-apikey-2.png" alt="Configuration de l'application Wix et récupération des identifiants" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                </p>
-
-                <p>
-                    <strong>Conseil de sécurité :</strong> Pour toutes les plateformes, nous recommandons d'utiliser un compte
-                    dédié avec uniquement les permissions de lecture nécessaires.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Comptes de test inclus</h2>
-            <div class="section-box">
-                <p>
-                    Avant de connecter vos vraies boutiques, découvrez toutes les fonctionnalités de WooNotif
-                    grâce aux <strong>comptes de test préconfigurés</strong> directement dans l'application !
-                </p>
-                <ul>
-                    <li>Comptes de démonstration pour WooCommerce, Shopify et Wix</li>
-                    <li>Identifiants réels de stores de test pour tester l'interface</li>
-                    <li>Découverte des fonctionnalités sans configuration préalable</li>
-                    <li>Remplissage automatique des champs de connexion</li>
-                </ul>
-                <p>
-                    Ces comptes vous permettent de découvrir l'application et ses capacités multi-plateformes
-                    en quelques minutes, sans risque pour vos données réelles.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Notifications temps réel avec webhooks</h2>
-            <div class="section-box">
-                <p>
-                    Pour recevoir des <strong>notifications push instantanées</strong> dès qu'une nouvelle commande arrive,
-                    configurez les webhooks sur vos plateformes e-commerce. Cette étape est <strong>optionnelle</strong>
-                    mais recommandée pour une expérience optimale.
-                </p>
-
-                <h3>🚀 Avantages des webhooks</h3>
-                <ul>
-                    <li>Notifications push <strong>instantanées</strong> (pas de délai)</li>
-                    <li>Économie de batterie (pas de vérification périodique)</li>
-                    <li>Alerte immédiate pour les nouvelles commandes</li>
-                    <li>Fonctionne même en arrière-plan</li>
-                </ul>
-
-                <h3>⚙️ Configuration par plateforme</h3>
-
-                <h4>🛒 WooCommerce - Configuration des webhooks</h4>
-                <h5>1. Accéder aux webhooks WordPress</h5>
-                <ul>
-                    <li>Connectez-vous à votre panneau WordPress</li>
-                    <li>Allez dans <strong>WooCommerce &gt; Réglages &gt; Avancé &gt; Webhooks</strong></li>
-                    <li>Cliquez sur <strong>"Ajouter un webhook"</strong></li>
-                </ul>
-
-                <h5>2. Configurer le webhook pour les nouvelles commandes</h5>
-                <ul>
-                    <li><strong>Nom :</strong> <em>WooNotif - Nouvelles commandes</em></li>
-                    <li><strong>Statut :</strong> Actif</li>
-                    <li><strong>Sujet :</strong> Commande créée</li>
-                    <li><strong>URL de livraison :</strong> <code>https://webhookwoocommerce-adydmsmlpa-uc.a.run.app</code></li>
-                    <li><strong>Version API :</strong> WP REST API Integration v3</li>
-                </ul>
-
-                <p style="text-align:center; margin: 15px 0;">
-                    <img src="assets/images/webhook-woocommerce.png" alt="Configuration webhook WooCommerce" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                </p>
-
-                <h5>3. Sauvegarder et tester</h5>
-                <ul>
-                    <li>Cliquez sur <strong>"Enregistrer le webhook"</strong></li>
-                    <li>Passez une commande test pour vérifier les notifications</li>
-                </ul>
-
-                <h4>🛍️ Shopify - Configuration des webhooks</h4>
-                <h5>1. Accéder aux paramètres de notifications</h5>
-                <ul>
-                    <li>Connectez-vous à votre admin Shopify</li>
-                    <li>Allez dans <strong>Paramètres &gt; Notifications &gt; Webhooks</strong></li>
-                    <li>Cliquez sur <strong>"Créer un webhook"</strong></li>
-                </ul>
-
-                <h5>2. Configurer le webhook</h5>
-                <ul>
-                    <li><strong>Événement :</strong> Order creation</li>
-                    <li><strong>Format :</strong> JSON</li>
-                    <li><strong>URL :</strong> <code>https://webhookwoocommerce-adydmsmlpa-uc.a.run.app</code></li>
-                </ul>
-
-                <p style="text-align:center; margin: 15px 0;">
-                    <img src="assets/images/webhooks-shopify.png" alt="Configuration webhook Shopify" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                </p>
-
-                <h5>3. Sauvegarder et tester</h5>
-                <ul>
-                    <li>Cliquez sur <strong>"Enregistrer"</strong></li>
-                    <li>Créez une commande test dans Shopify</li>
-                </ul>
-
-                <h4>🎨 Wix - Configuration des webhooks</h4>
-                <h5>1. Accéder au Centre de développement</h5>
-                <ul>
-                    <li>Connectez-vous à votre éditeur Wix</li>
-                    <li>Allez dans <strong>Paramètres du site &gt; Gestion des ventes &gt; Applications et intégrations &gt; Développeur &gt; Webhooks</strong></li>
-                    <li>Cliquez sur <strong>"Créer un webhook"</strong></li>
-                </ul>
-
-                <h5>2. Configurer le webhook</h5>
-                <ul>
-                    <li><strong>Événement :</strong> Order Placed</li>
-                    <li><strong>URL du webhook :</strong> <code>https://webhookwoocommerce-adydmsmlpa-uc.a.run.app</code></li>
-                    <li><strong>Format :</strong> JSON</li>
-                </ul>
-
-                <p style="text-align:center; margin: 15px 0;">
-                    <img src="assets/images/webhook-wix.png" alt="Configuration webhook Wix" style="max-width:100%; height:auto; border-radius:8px; box-shadow:0 4px 16px rgba(0,0,0,0.08);">
-                </p>
-
-                <h5>3. Sauvegarder et tester</h5>
-                <ul>
-                    <li>Cliquez sur <strong>"Enregistrer"</strong></li>
-                    <li>Passez une commande test sur votre site Wix</li>
-                </ul>
-
-                <h3>🔧 Dépannage des webhooks</h3>
-                <ul>
-                    <li><strong>Pas de notifications ?</strong> Vérifiez que le webhook est actif et que l'URL est correcte (https://webhookwoocommerce-adydmsmlpa-uc.a.run.app)</li>
-                    <li><strong>Test manuel :</strong> Créez une commande et surveillez les logs</li>
-                    <li><strong>Documentation complète :</strong> Consultez notre <a href="docs/WEBHOOK_SETUP.md">guide détaillé des webhooks</a></li>
-                </ul>
-
-                <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #2196f3;">
-                    <p style="margin: 0; font-weight: bold; color: #1565c0;">
-                        💡 <strong>Note importante :</strong>
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">WooCommerce · Shopify · Wix</div>
+                    <h1 class="hero-title">
+                        Ne ratez plus<br>
+                        <span class="highlight">une commande.</span>
+                    </h1>
+                    <p class="hero-description">
+                        WooNotif centralise vos boutiques sur Android : notifications push, détails livraison, actions terrain.
+                        Boutiques illimitées en gratuit — Pro pour piloter le statut, la journée et un collaborateur.
                     </p>
-                    <p style="margin: 5px 0 0 0;">
-                        Les webhooks sont <strong>optionnels</strong> mais fortement recommandés pour une expérience optimale.
-                        Sans webhooks, l'application vérifie les nouvelles commandes toutes les 15 minutes minimum (limitation iOS/Android), 
-                        mais ça reste peu fiable car les systèmes d'exploitation limitent l'utilisation en arrière plan donc quand vous quittez 
-                        l'application sans webhooks c'est très peu probable d'avoir les notifications de nouvelles commandes.
-                    </p>
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <svg class="feature-item-icon" viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 1.5L9.2 5.8H13.8L10.1 8.5L11.3 12.8L8 10.1L4.7 12.8L5.9 8.5L2.2 5.8H6.8L8 1.5Z"/></svg>
+                            <span>Push webhook</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="feature-item-icon" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="3" width="5" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="3" width="5" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+                            <span>Multi-boutiques</span>
+                        </div>
+                        <div class="feature-item">
+                            <svg class="feature-item-icon" viewBox="0 0 16 16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 8h10M8 3v10"/></svg>
+                            <span>Sans plugin lourd</span>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary btn-large" href="https://play.google.com/store/apps/details?id=com.woonotifs.app" target="_blank" rel="noopener">
+                        Voir sur Google Play
+                    </a>
+                    <div class="platform-line" aria-label="Disponibilité">
+                        <span class="platform-pill platform-pill--available">Disponible sur Google Play</span>
+                    </div>
+                    <p class="hero-footer">Clés API en lecture seule par défaut. Pas besoin de Jetpack ni d’extension qui alourdit votre site.</p>
+                </div>
+                <div class="app-showcase" aria-hidden="false">
+                    <div class="phone-mockup">
+                        <img class="phone-screen" src="assets/images/woonotif-screen-1.jpg" alt="Liste des commandes WooNotif sur Android" width="440" height="880" loading="eager">
+                    </div>
+                    <div class="phone-mockup">
+                        <img class="phone-screen" src="assets/images/woonotif-screen-2.jpg" alt="Détail d’une commande dans WooNotif" width="440" height="880" loading="lazy">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2>Fonctionnement technique et confidentialité</h2>
-            <div class="section-box">
-                <h3>Récupération intelligente des commandes</h3>
-                <ul>
-                    <li>Seules les <strong>commandes en cours de traitement</strong> sont récupérées</li>
-                    <li>Les commandes terminées (livrées/annulées) ne sont pas affichées pour respecter la vie privée</li>
-                    <li>Les commandes ne sont <strong>jamais modifiées</strong> sur vos boutiques en ligne</li>
-                    <li>Commentaires et statuts locaux restent uniquement sur votre appareil</li>
-                </ul>
-
-                <h3>Sécurité et confidentialité</h3>
-                <ul>
-                    <li>Connexion à vos boutiques uniquement via <strong>HTTPS</strong></li>
-                    <li>Identifiants API stockés <strong>uniquement sur votre appareil</strong> (AsyncStorage)</li>
-                    <li>Aucune donnée envoyée à nos propres serveurs (nous n'en avons pas)</li>
-                    <li>Publicités gérées par <strong>Google AdMob</strong> (voir leur politique)</li>
-                </ul>
-                <p>
-                    Tous les détails sont expliqués dans notre <a href="privacy-policy.html">politique de confidentialité</a>.
-                    Pour en savoir plus sur la configuration sécurisée des APIs, consultez notre <a href="guide-api-webhook.html#securite">guide de sécurité</a>.
-                </p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Fonctionnalités actuelles</h2>
-            <div class="section-box">
-                <p>
-                    WooNotif est déjà riche en fonctionnalités :
-                </p>
-                <ul>
-                    <li>✅ Support multi-plateformes (WooCommerce, Shopify, Wix)</li>
-                    <li>✅ Gestion de plusieurs boutiques dans une même application</li>
-                    <li>✅ Filtres par statut et recherche par numéro/client/email</li>
-                    <li>✅ Commentaires locaux sur les commandes</li>
-                    <li>✅ Marquage "traité" des commandes localement</li>
-                    <li>✅ Export CSV avec commentaires</li>
-                    <li>✅ Comptes de test préconfigurés</li>
-                    <li>✅ Notifications push personnalisables</li>
-                    <li>✅ Mode sélection multiple avec actions groupées</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Plan Premium - Supprimer les publicités</h2>
-            <div class="section-box">
-                <p>
-                    WooNotif est <strong>gratuit à utiliser</strong>, mais nous proposons un plan premium optionnel pour soutenir le développement et supprimer les publicités :
-                </p>
-
-                <h3>💰 Tarifs du plan premium</h3>
-                <ul>
-                    <li><strong>0,99 € par mois</strong> - Facturation mensuelle flexible</li>
-                    <li><strong>9,49 € par an</strong> - Économisez 40% avec la facturation annuelle</li>
-                </ul>
-
-                <h3>🎯 Avantages du plan premium</h3>
-                <ul>
-                    <li>Suppression complète des publicités dans toute l'application</li>
-                    <li>Support du développement continu de WooNotif</li>
-                    <li>Couverture des frais de Firebase/Firestore pour les fonctionnalités avancées</li>
-                    <li>Accès prioritaire aux nouvelles fonctionnalités</li>
-                </ul>
-
-                <h3>🔒 Comment ça fonctionne</h3>
-                <ul>
-                    <li>Achat directement dans l'application via Google Play</li>
-                    <li>Restauration automatique des achats sur tous vos appareils</li>
-                    <li>Annulation possible à tout moment</li>
-                    <li>Pas de données personnelles collectées pour ce service</li>
-                </ul>
-
-                <div style="background-color: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #2196f3;">
-                    <p style="margin: 0; font-weight: bold; color: #1565c0;">
-                        💡 <strong>Note :</strong>
-                    </p>
-                    <p style="margin: 5px 0 0 0;">
-                        Le plan premium est <strong>entièrement optionnel</strong>. WooNotif reste pleinement fonctionnel sans achat,
-                        seules les publicités sont supprimées pour les utilisateurs premium.
-                    </p>
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Tout pour réagir<br><span class="highlight">dès la commande</span></h2>
+                    <p>Le gratuit couvre le suivi et le terrain. Pro ajoute le pilotage (statut, journée, équipe).</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon-large" aria-hidden="true">🔔</div>
+                        <h3>Notifications temps réel</h3>
+                        <p>Une alerte push dès qu’une commande arrive, même l’app fermée.</p>
+                        <ul>
+                            <li>Webhook Woo / Shopify / Wix</li>
+                            <li>Réveil via FCM — pas de polling agressif</li>
+                            <li>Règles optionnelles en Pro</li>
+                        </ul>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon-large" aria-hidden="true">🏪</div>
+                        <h3>Multi-plateformes</h3>
+                        <p>Une app pour toutes vos boutiques — sans plafonner le nombre de stores.</p>
+                        <ul>
+                            <li>WooCommerce, Shopify, Wix</li>
+                            <li>Boutiques illimitées en gratuit</li>
+                            <li>Comptes de démo pour tester</li>
+                        </ul>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon-large" aria-hidden="true">📍</div>
+                        <h3>Actions terrain</h3>
+                        <p>Appelez, écrivez sur WhatsApp ou ouvrez Maps depuis la fiche.</p>
+                        <ul>
+                            <li>Templates (en route, livré, rappel)</li>
+                            <li>Filtres ville et paiement (COD)</li>
+                            <li>Notes locales + export PDF / CSV</li>
+                        </ul>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon-large" aria-hidden="true">📊</div>
+                        <h3>Aujourd’hui &amp; récap <span class="pro-tag">Pro</span></h3>
+                        <p>Pilotez la journée : volume, CA, COD vs prépayé.</p>
+                        <ul>
+                            <li>Écran / bandeau du jour</li>
+                            <li>Notification récap en fin de journée</li>
+                            <li>Historique des commandes terminées</li>
+                        </ul>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon-large" aria-hidden="true">✍️</div>
+                        <h3>Écriture de statut <span class="pro-tag">Pro</span></h3>
+                        <p>Clôturez depuis le téléphone — fiche, lot ou action sur la notif.</p>
+                        <ul>
+                            <li>Clé lecture/écriture opt-in</li>
+                            <li>Jamais de modification produits / prix</li>
+                            <li>Par défaut : lecture seule</li>
+                        </ul>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon-large" aria-hidden="true">👥</div>
+                        <h3>1 collaborateur inclus <span class="pro-tag">Pro</span></h3>
+                        <p>Invitez un préparateur ou livreur sans lui donner l’admin ni vos clés.</p>
+                        <ul>
+                            <li>Invitation à durée limitée</li>
+                            <li>Silencieux, widget, sync commentaires</li>
+                            <li>Sans publicités</li>
+                        </ul>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2>Évolutions futures</h2>
-            <div class="section-box future-box">
-                <p>
-                    Nous travaillons sur de nouvelles plateformes et améliorations :
-                </p>
-                <ul>
-                    <li>Support de Squarespace et autres plateformes e-commerce <span class="badge">bientôt</span></li>
-                    <li>Thèmes personnalisables et options d'affichage avancées</li>
-                </ul>
-                <p>
-                    Ces évolutions seront annoncées dans les futures mises à jour de l'application.
+        <section class="how-it-works" id="how">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Comment ça marche&nbsp;?</h2>
+                    <p>Quatre étapes — le détail API et webhooks est dans le guide.</p>
+                </div>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon" aria-hidden="true">🔑</div>
+                        <h3>Clés en lecture</h3>
+                        <p>Créez des identifiants API lecture seule sur Woo, Shopify ou Wix.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon" aria-hidden="true">🔗</div>
+                        <h3>Webhook (recommandé)</h3>
+                        <p>Pointez l’URL WooNotif pour les nouvelles commandes.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon" aria-hidden="true">📱</div>
+                        <h3>Recevez les push</h3>
+                        <p>Ouvrez la commande, appelez, Maps, WhatsApp, notes.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-icon" aria-hidden="true">⚡</div>
+                        <h3>Passez en Pro</h3>
+                        <p>Statut write, récap, historique, 1 collab via invitation.</p>
+                    </div>
+                </div>
+                <p class="how-link">
+                    <a href="guide-api-webhook.html">Guide complet clés API &amp; webhooks →</a>
                 </p>
             </div>
         </section>
 
-        <section class="links">
-            <h2>Liens utiles</h2>
-            <ul>
-                <li><a href="guide-api-webhook.html">Guide de configuration API & Webhooks</a></li>
-                <li><a href="privacy-policy.html">Politique de confidentialité de WooNotif</a></li>
-                <li><a href="data-deletion.html">Procédure de suppression des données</a></li>
-                <li><a href="https://taghazit.com" target="_blank" rel="noopener">Site du développeur (taghazit.com)</a></li>
-            </ul>
-
-            <p class="small">
-                Cette page est uniquement informative et destinée à accompagner la fiche Google Play de l’application WooNotif.
-            </p>
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Gratuit gras.<br><span class="highlight">Pro pour piloter.</span></h2>
+                    <p>Pas de plafond de boutiques. Pro se vend sur des gestes que le gratuit ne fait pas.</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Gratuit</h3>
+                            <p>Suivi et terrain, avec publicités</p>
+                            <div class="price">
+                                <span class="price-amount">0&nbsp;€</span>
+                                <span class="price-note">Sans limite de boutiques</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <p>Inclus</p>
+                            <ul>
+                                <li>Notifs webhook (toutes les commandes)</li>
+                                <li>WooCommerce, Shopify, Wix</li>
+                                <li>Appel, WhatsApp, Maps, templates</li>
+                                <li>Filtres ville / paiement</li>
+                                <li>Commentaires locaux, PDF / CSV</li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-outline" href="https://play.google.com/store/apps/details?id=com.woonotifs.app" target="_blank" rel="noopener">Installer</a>
+                    </div>
+                    <div class="pricing-card featured">
+                        <div class="featured-badge">Recommandé</div>
+                        <div class="pricing-header">
+                            <h3>Pro</h3>
+                            <p>Statut, journée, équipe — sans pubs</p>
+                            <div class="price">
+                                <span class="price-amount">8,99&nbsp;€</span>
+                                <span class="price-note">par mois · ou 79,99&nbsp;€ / an · via Google Play</span>
+                            </div>
+                        </div>
+                        <div class="pricing-features">
+                            <p>Tout le gratuit, plus</p>
+                            <ul>
+                                <li>Changer le statut (fiche, lot, notif)</li>
+                                <li>Aujourd’hui, récap, historique</li>
+                                <li>Silencieux / son par boutique + widget</li>
+                                <li>Sync des commentaires (même compte)</li>
+                                <li>Règles de notif optionnelles</li>
+                                <li>1 collaborateur inclus (invitation)</li>
+                                <li>Sans publicités</li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.woonotifs.app" target="_blank" rel="noopener">Passer à Pro sur Play</a>
+                    </div>
+                </div>
+                <div class="pricing-footer">
+                    <div class="highlight-box">
+                        <h3>Lecture seule par défaut</h3>
+                        <p>L’écriture de statut exige Pro et une clé API lecture/écriture que vous activez volontairement. Les produits et réglages boutique restent intacts.</p>
+                    </div>
+                    <div class="highlight-box">
+                        <h3>Équipe : 1 siège inclus</h3>
+                        <p>Avec Pro, invitez un collaborateur sans partager vos clés. Les sièges supplémentaires payants ne sont pas encore proposés sur Google Play.</p>
+                    </div>
+                    <p class="footer-note">Abonnement Google Play · Annulable · Prix affichés selon la région Play</p>
+                </div>
+            </div>
         </section>
-    </div>
+
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Questions fréquentes</h2>
+                    <p>Réponses courtes pour démarrer et pour les moteurs de recherche.</p>
+                </div>
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>Faut-il un webhook pour les notifications&nbsp;?</summary>
+                        <p>Optionnel mais fortement recommandé. Avec un webhook, le push arrive dès la création de commande. Sans webhook, l’arrière-plan OS est peu fiable : vous risquez de manquer des alertes. Le <a href="guide-api-webhook.html">guide</a> détaille Woo, Shopify et Wix.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>L’application modifie-t-elle mes commandes&nbsp;?</summary>
+                        <p>Par défaut, non : connexion en lecture seule. Le changement de statut sur la boutique est réservé au Pro avec clé write opt-in (fiche, lot, action notif). Produits, prix et réglages ne sont jamais touchés.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Que contient le plan Pro&nbsp;?</summary>
+                        <p>8,99&nbsp;€/mois ou 79,99&nbsp;€/an : écriture de statut, Aujourd’hui / récap, historique, silencieux et widget, sync commentaires, règles optionnelles, sans pubs, et 1 collaborateur inclus par invitation.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Puis-je ajouter plusieurs collaborateurs&nbsp;?</summary>
+                        <p>Pro inclut un siège à remplir par invitation, sans clés API. Les sièges supplémentaires payants ne sont pas encore en vente sur Google Play (seuls les abonnements Pro mensuel et annuel existent aujourd’hui).</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Où sont stockées mes données&nbsp;?</summary>
+                        <p>Clés API et la plupart des commandes restent sur l’appareil. Les push passent par Cloud Functions / Firebase. En Pro, les commentaires peuvent être synchronisés pour le même compte. Détails dans la <a href="privacy-policy.html">politique de confidentialité</a>.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary>Faut-il installer un plugin sur ma boutique&nbsp;?</summary>
+                        <p>Non. WooNotif utilise les API officielles et un webhook natif. Pas de Jetpack ni d’extension lourde côté WordPress / Shopify / Wix.</p>
+                    </details>
+                </div>
+                <div class="faq-cta">
+                    <p>Besoin d’aide pour la config&nbsp;?</p>
+                    <a class="btn btn-secondary" href="guide-api-webhook.html">Ouvrir le guide API</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img class="footer-icon" src="assets/images/WooNotif-app-icon.png" alt="" width="40" height="40">
+                    <span>WooNotif</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Produit</h4>
+                        <ul>
+                            <li><a href="#features">Fonctionnalités</a></li>
+                            <li><a href="#pricing">Tarifs</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="guide-api-webhook.html">Guide API &amp; webhooks</a></li>
+                            <li><a href="privacy-policy.html">Confidentialité</a></li>
+                            <li><a href="data-deletion.html">Suppression des données</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Télécharger</h4>
+                        <a class="btn btn-small btn-primary" href="https://play.google.com/store/apps/details?id=com.woonotifs.app" target="_blank" rel="noopener">Google Play</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 WooNotif. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var hamburger = document.querySelector('.hamburger');
+            var mobileMenu = document.querySelector('.mobile-menu');
+            if (!hamburger || !mobileMenu) return;
+            hamburger.addEventListener('click', function () {
+                var open = mobileMenu.classList.toggle('show');
+                hamburger.classList.toggle('active', open);
+                hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+            mobileMenu.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('show');
+                    hamburger.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
