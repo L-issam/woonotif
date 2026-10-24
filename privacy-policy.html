@@ -130,7 +130,7 @@
         <h1>Politique de Confidentialité - WooNotif</h1>
         
         <div class="last-updated">
-            <strong>Dernière mise à jour :</strong> 22 octobre 2026
+            <strong>Dernière mise à jour :</strong> 24 octobre 2026
         </div>
         
         <h2>Introduction</h2>
@@ -146,68 +146,97 @@
         <h2>Informations que nous collectons</h2>
         
         <div class="last-updated" style="background-color: #fff3cd; border-left-color: #ffc107;">
-            <strong>Important :</strong> Les clés API et la plupart des données de commandes restent <strong>sur votre appareil</strong>.
-            Les notifications push passent par des Cloud Functions / Firebase (identifiants d’appareil / tokens, pas le détail client dans le payload).
-            Avec le plan Pro, les commentaires peuvent être synchronisés sur le cloud pour le même compte, et les invitations d’équipe utilisent Firestore.
+            <strong>Important :</strong> Un <strong>compte WooNotif</strong> (e-mail/mot de passe ou Google) est requis.
+            Les clés API boutique et la plupart des données de commandes restent <strong>sur votre appareil</strong>.
+            Le compte, les notifications push, les abonnements store et (en Pro) commentaires / équipe passent par
+            <strong>Firebase (Google)</strong> — Auth, Firestore, Cloud Messaging / Cloud Functions.
         </div>
-        
-        <h3>Informations d'authentification</h3>
+
+        <h3>Compte WooNotif (Firebase Authentication)</h3>
         <ul>
-            <li><strong>URL de votre boutique WooCommerce</strong> : Nécessaire pour se connecter à votre API</li>
-            <li><strong>Consumer Key (Clé API)</strong> : Identifiant d'authentification WooCommerce</li>
-            <li><strong>Consumer Secret (Secret API)</strong> : Clé secrète d'authentification WooCommerce</li>
+            <li><strong>Adresse e-mail</strong> : fournie à la création de compte e-mail, ou via Google Sign-In</li>
+            <li><strong>Mot de passe</strong> : si connexion e-mail — traité par Firebase Auth (nous ne le stockons pas en clair)</li>
+            <li><strong>Identifiant utilisateur (UID)</strong> : identifiant technique Firebase lié à votre compte</li>
+            <li><strong>Profil Google</strong> (si vous choisissez « Continuer avec Google ») : e-mail et, le cas échéant, nom d’affichage transmis par Google pour l’authentification</li>
         </ul>
         <p>
-            Ces informations sont stockées <strong>uniquement sur votre appareil</strong> dans le stockage local sécurisé de l'application (AsyncStorage).
+            Finalité : authentification, sécurité du compte, association de vos données cloud (push, prefs, équipe) à votre UID.
+            Réinitialisation du mot de passe : e-mail envoyé via Firebase.
+        </p>
+        
+        <h3>Identifiants boutique (stockage local)</h3>
+        <ul>
+            <li><strong>URL de boutique</strong> (WooCommerce, Shopify ou Wix)</li>
+            <li><strong>Clés / tokens API</strong> (Consumer Key/Secret, access token, etc.)</li>
+        </ul>
+        <p>
+            Ces informations sont stockées <strong>uniquement sur votre appareil</strong> (stockage local de l’application).
+            Elles ne sont pas envoyées vers Firestore pour y être conservées.
         </p>
         
         <h3>Données des commandes</h3>
         <ul>
-            <li>Informations des commandes WooCommerce (numéro, date, client, montant, statut)</li>
-            <li>Ces données sont récupérées depuis votre boutique WooCommerce via l'API REST</li>
+            <li>Informations de commandes (numéro, date, client, montant, statut) récupérées via l’API de votre boutique</li>
+            <li>Affichage et traitement principalement sur l’appareil ; les payloads de notification push restent minimaux (ex. identifiants de commande / boutique pour le routage)</li>
+        </ul>
+
+        <h3>Données cloud liées au compte (Firebase / Firestore)</h3>
+        <ul>
+            <li><strong>Tokens de notification push</strong> (FCM) et abonnements aux boutiques pour router les webhooks</li>
+            <li><strong>Préférences de notification</strong> (ex. heures silencieuses) associées à votre UID</li>
+            <li><strong>En Pro</strong> : commentaires synchronisés, métadonnées d’équipe / invitations (sièges collab)</li>
         </ul>
         
-        <h3>Données techniques</h3>
+        <h3>Données techniques &amp; pubs / achats</h3>
         <ul>
-            <li>Permissions de l'appareil (caméra pour scanner les QR codes)</li>
-            <li>Préférences de notification</li>
-            <li>Données de diagnostic anonymes (en cas d'erreurs)</li>
+            <li>Permissions de l’appareil (caméra pour scanner les QR codes)</li>
+            <li>Identifiants publicitaires / données AdMob si vous n’êtes pas Pro (voir section Publicités)</li>
+            <li>Données d’achat / abonnement Pro via Google Play Billing</li>
         </ul>
         
         <h2>Comment nous utilisons vos informations</h2>
         
         <h3>Utilisation des données</h3>
         <ul>
-            <li><span class="check">✓</span> <strong>Affichage des commandes</strong> : Pour vous permettre de visualiser vos commandes WooCommerce</li>
-            <li><span class="check">✓</span> <strong>Notifications</strong> : Pour vous alerter des nouvelles commandes (si activé)</li>
-            <li><span class="check">✓</span> <strong>Authentification</strong> : Pour se connecter à votre API WooCommerce de manière sécurisée</li>
+            <li><span class="check">✓</span> <strong>Compte</strong> : vous connecter et sécuriser l’accès à l’app</li>
+            <li><span class="check">✓</span> <strong>Affichage des commandes</strong> : visualiser les commandes de vos boutiques</li>
+            <li><span class="check">✓</span> <strong>Notifications</strong> : vous alerter des nouvelles commandes (si activé)</li>
+            <li><span class="check">✓</span> <strong>API boutique</strong> : appeler WooCommerce / Shopify / Wix avec vos clés locales</li>
+            <li><span class="check">✓</span> <strong>Équipe (Pro)</strong> : invitations et sync commentaires entre membres autorisés</li>
+            <li><span class="check">✓</span> <strong>Premium</strong> : gérer l’abonnement sans publicités via Play Billing</li>
         </ul>
         
         <h3>Ce que nous ne faisons PAS</h3>
         <ul>
             <li><span class="cross">✗</span> Nous ne vendons PAS vos données à des tiers</li>
-            <li><span class="cross">✗</span> Nous n'envoyons PAS vos clés API (CK/CS, tokens boutique) vers Firebase pour les stocker</li>
+            <li><span class="cross">✗</span> Nous n'envoyons PAS vos clés API boutique (CK/CS, tokens) vers Firebase pour les stocker</li>
             <li><span class="cross">✗</span> Nous n'accédons PAS à votre boutique sans votre autorisation explicite</li>
             <li><span class="cross">✗</span> Nous ne modifions PAS produits, prix ou réglages — l’écriture de statut commande n’existe qu’en Pro avec clé write opt-in</li>
         </ul>
         
         <h2>Stockage et sécurité</h2>
         
-        <h3>Stockage local et cloud limité</h3>
+        <h3>Stockage local et cloud</h3>
         <p>
             Sur l’appareil :
         </p>
         <ul>
-            <li>Les identifiants API sont stockés localement</li>
-            <li>Vous pouvez supprimer les données locales en désinstallant l'application ou en réinitialisant ses données</li>
+            <li>Identifiants API boutique et données d’usage locales</li>
+            <li>Session / persistance Auth côté client</li>
+            <li>Suppression locale : désinstallation ou « Effacer les données » de l’app</li>
         </ul>
         <p>
-            Sur l’infrastructure Firebase / Cloud Functions (nécessaire au service) :
+            Sur Firebase / Google Cloud (lié à votre compte) :
         </p>
         <ul>
-            <li>Abonnements aux notifications (tokens push, URL boutique pour le routage webhook)</li>
-            <li>En Pro : commentaires synchronisés et métadonnées d’équipe / invitations</li>
+            <li>Compte Auth (e-mail / fournisseur Google, UID)</li>
+            <li>Tokens push, abonnements notifications, préférences liées à l’UID</li>
+            <li>En Pro : commentaires sync et memberships / invitations d’équipe</li>
         </ul>
+        <p>
+            Pour supprimer aussi le cloud : voir la page
+            <a href="data-deletion.html">Suppression des données</a>.
+        </p>
         
         <h3>Sécurité</h3>
         <ul>
@@ -242,24 +271,22 @@
         <h2>Vos droits</h2>
         <p>Vous avez le droit de :</p>
         <ul>
-            <li><span class="check">✓</span> Accéder à vos données stockées localement</li>
-            <li><span class="check">✓</span> Supprimer toutes vos données (désinstaller l'application)</li>
-            <li><span class="check">✓</span> Révoquer l'accès à votre boutique à tout moment</li>
+            <li><span class="check">✓</span> Accéder aux informations de votre compte (e-mail affiché dans l’app)</li>
+            <li><span class="check">✓</span> Vous déconnecter à tout moment</li>
+            <li><span class="check">✓</span> Supprimer les données locales (désinstall / effacer données)</li>
+            <li><span class="check">✓</span> Demander la suppression du compte et des données cloud (Auth, Firestore)</li>
+            <li><span class="check">✓</span> Révoquer l'accès à votre boutique (supprimer le store dans l’app)</li>
             <li><span class="check">✓</span> Désactiver les notifications</li>
-            <li><span class="check">✓</span> Demander des informations sur vos données</li>
         </ul>
         <p>
-            Pour exercer ces droits, vous pouvez :
+            Pour exercer ces droits : paramètres de l’app / appareil, page
+            <a href="data-deletion.html">Suppression des données</a>, ou contact ci-dessous.
         </p>
-        <ul>
-            <li>Supprimer l'application de votre appareil</li>
-            <li>Réinitialiser les données de l'application dans les paramètres système</li>
-            <li>Nous contacter (voir coordonnées ci-dessous)</li>
-        </ul>
         
         <h2>Cookies et technologies de suivi</h2>
         <p>
-            L'application n'utilise pas de cookies web. Les communications commandes se font principalement entre votre appareil et votre boutique (WooCommerce, Shopify ou Wix) via HTTPS ; les push et certaines fonctions Pro passent aussi par Firebase / Google Cloud.
+            L'application n'utilise pas de cookies web. Les communications commandes se font principalement entre votre appareil et votre boutique (WooCommerce, Shopify ou Wix) via HTTPS.
+            Le compte, les push et certaines fonctions Pro passent par Firebase / Google Cloud. AdMob peut utiliser des identifiants publicitaires (utilisateurs non Pro).
         </p>
         
         <h2>Publicités (Google Ads)</h2>
@@ -277,9 +304,10 @@
             Nous ne vendons vos données à aucun tiers. Des prestataires techniques interviennent pour le service :
         </p>
         <ul>
+            <li><strong>Google Firebase Authentication</strong> : compte e-mail ou Google Sign-In</li>
+            <li><strong>Google Firebase / Cloud</strong> : Firestore, FCM, Cloud Functions (push, webhooks, sync Pro / équipe)</li>
             <li><strong>Google AdMob</strong> : publicités (utilisateurs non Pro)</li>
             <li><strong>Google Play Billing</strong> : achats d’abonnement Pro</li>
-            <li><strong>Firebase / Google Cloud</strong> : push, webhooks, sync Pro / équipe</li>
             <li><strong>Votre boutique</strong> : WooCommerce, Shopify ou Wix via leurs API (données que vous contrôlez)</li>
         </ul>
         
@@ -289,7 +317,8 @@
         </p>
         <ul>
             <li><strong>Sur votre appareil</strong> : jusqu’à désinstallation ou réinitialisation</li>
-            <li><strong>Sur Firebase</strong> : tokens / abonnements push et, en Pro, commentaires sync et memberships — jusqu’à suppression du compte / désabonnement / demande de suppression (voir aussi la page suppression des données)</li>
+            <li><strong>Compte Firebase Auth</strong> : jusqu’à suppression du compte (demande via la page suppression ou contact)</li>
+            <li><strong>Firestore</strong> : tokens / abonnements push, prefs liées à l’UID et, en Pro, commentaires sync / memberships — jusqu’à suppression demandée ou désabonnement</li>
         </ul>
         
         <h2>Modifications de cette politique</h2>

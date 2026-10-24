@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Demande de suppression des données - WooNotif - Application mobile pour gérer vos commandes WooCommerce">
+    <meta name="description" content="Demande de suppression des données - WooNotif - Compte Firebase, données locales et cloud">
     <title>Suppression des Données - WooNotif</title>
     <style>
         * {
@@ -172,119 +172,107 @@
         <h1>Demande de Suppression des Données - WooNotif</h1>
         
         <div class="info-box">
-            <h3>ℹ️ Informations importantes</h3>
+            <h3>ℹ️ Où sont vos données ?</h3>
             <p>
-                <strong>WooNotif</strong> stocke toutes vos données <strong>uniquement sur votre appareil</strong>. 
-                Aucune donnée n'est stockée sur nos serveurs ou sur des serveurs distants.
+                <strong>WooNotif</strong> utilise un <strong>compte</strong> (e-mail ou Google via Firebase Authentication).
+            </p>
+            <ul>
+                <li><strong>Sur l’appareil</strong> : clés API boutique, caches, préférences locales</li>
+                <li><strong>Dans le cloud (Firebase)</strong> : compte Auth (e-mail / UID), tokens push, abonnements notifications,
+                    préférences liées au compte ; en Pro : commentaires sync et memberships / invitations d’équipe</li>
+            </ul>
+            <p>
+                Désinstaller l’app <strong>ne suffit pas</strong> pour effacer le compte cloud : suivez aussi l’étape 3.
             </p>
         </div>
         
         <h2>Comment supprimer vos données</h2>
         
-        <p>
-            Pour supprimer toutes vos données de l'application <strong>WooNotif</strong>, vous avez deux options :
-        </p>
-        
         <div class="step">
-            <h3><span class="step-number">1</span> Méthode 1 : Désinstaller l'application</h3>
-            <p>La méthode la plus simple pour supprimer toutes vos données :</p>
+            <h3><span class="step-number">1</span> Données locales — désinstaller l’application</h3>
             <ol>
-                <li>Allez dans les paramètres de votre appareil Android</li>
-                <li>Recherchez "WooNotif" dans la liste des applications</li>
-                <li>Appuyez sur "Désinstaller"</li>
-                <li>Confirmez la désinstallation</li>
+                <li>Paramètres Android → Applications → WooNotif</li>
+                <li>Appuyez sur « Désinstaller »</li>
             </ol>
-            <p><strong>Résultat :</strong> Toutes les données stockées localement seront supprimées définitivement.</p>
+            <p><strong>Résultat :</strong> clés API, caches et données locales supprimés de l’appareil.</p>
         </div>
         
         <div class="step">
-            <h3><span class="step-number">2</span> Méthode 2 : Réinitialiser les données de l'application</h3>
-            <p>Si vous souhaitez garder l'application mais supprimer vos données :</p>
+            <h3><span class="step-number">2</span> Données locales — effacer sans désinstaller</h3>
             <ol>
-                <li>Allez dans les paramètres de votre appareil Android</li>
-                <li>Recherchez "WooNotif" dans la liste des applications</li>
-                <li>Appuyez sur "Stockage" ou "Espace de stockage"</li>
-                <li>Appuyez sur "Effacer les données" ou "Réinitialiser"</li>
-                <li>Confirmez l'action</li>
+                <li>Paramètres Android → Applications → WooNotif → Stockage</li>
+                <li>« Effacer les données » / « Réinitialiser »</li>
             </ol>
-            <p><strong>Résultat :</strong> Toutes les données de l'application seront supprimées, mais l'application restera installée.</p>
+            <p><strong>Résultat :</strong> l’app reste installée ; vous devrez vous reconnecter.</p>
         </div>
         
+        <div class="step">
+            <h3><span class="step-number">3</span> Compte &amp; données cloud — demande par e-mail</h3>
+            <p>
+                Pour supprimer votre <strong>compte Firebase</strong> et les documents cloud associés (tokens push,
+                abonnements store, prefs, équipe / invitations, commentaires sync) :
+            </p>
+            <ol>
+                <li>Écrivez à <a href="mailto:sslaouane@gmail.com?subject=WooNotif%20-%20Suppression%20compte%20et%20donnees">sslaouane@gmail.com</a></li>
+                <li>Objet suggéré : <strong>WooNotif — Suppression compte et données</strong></li>
+                <li>Indiquez l’<strong>adresse e-mail du compte</strong> WooNotif (celle utilisée à la connexion e-mail ou Google)</li>
+            </ol>
+            <p>
+                <strong>Délai :</strong> nous traitons la demande sous un délai raisonnable (objectif : sous 30 jours),
+                puis confirmons par e-mail.
+            </p>
+        </div>
+
         <div class="important-box">
-            <h3>⚠️ Données supprimées</h3>
-            <p>Lors de la suppression, les données suivantes seront supprimées :</p>
+            <h3>⚠️ Ce qui est supprimé</h3>
+            <p><strong>Local (étapes 1–2) :</strong></p>
             <ul>
-                <li><strong>URL de votre boutique WooCommerce</strong></li>
-                <li><strong>Consumer Key (Clé API)</strong></li>
-                <li><strong>Consumer Secret (Secret API)</strong></li>
-                <li><strong>Préférences de notification</strong></li>
-                <li><strong>Dernier ID de commande connu</strong></li>
-                <li><strong>Toutes les autres données stockées localement</strong></li>
+                <li>URL et clés / tokens API des boutiques</li>
+                <li>Caches commandes et préférences locales</li>
+            </ul>
+            <p><strong>Cloud (étape 3, après traitement) :</strong></p>
+            <ul>
+                <li>Compte Firebase Authentication (e-mail / liaison Google)</li>
+                <li>Tokens FCM, abonnements notifications, préférences liées à l’UID</li>
+                <li>Données d’équipe / invitations et commentaires sync (Pro) liés à ce compte</li>
             </ul>
         </div>
         
-        <div class="info-box">
-            <h3>✅ Données conservées</h3>
-            <p>
-                <strong>Aucune donnée n'est conservée</strong> après la suppression. 
-                Toutes les données sont stockées uniquement sur votre appareil, 
-                donc une fois supprimées, elles le sont définitivement.
-            </p>
-        </div>
-        
         <div class="warning-box">
-            <h3>⚠️ Durée de conservation</h3>
+            <h3>⚠️ Ce qui n’est pas sous notre contrôle exclusif</h3>
+            <ul>
+                <li><strong>Google AdMob</strong> : données pub éventuelles — voir
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politique Google</a>
+                    et les réglages de votre appareil / compte Google</li>
+                <li><strong>Google Play Billing</strong> : historique d’achat géré par Google Play (annulation / gestion dans Play Store)</li>
+                <li><strong>Votre boutique</strong> (WooCommerce / Shopify / Wix) : les commandes restent chez votre plateforme e-commerce</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>✅ Déconnexion seule</h3>
             <p>
-                <strong>Durée de conservation :</strong> Les données sont conservées jusqu'à ce que vous les supprimiez 
-                (via désinstallation ou réinitialisation). Il n'y a pas de suppression automatique.
-            </p>
-            <p>
-                <strong>Après suppression :</strong> Les données sont supprimées immédiatement et définitivement. 
-                Aucune donnée n'est conservée après la suppression.
+                Vous pouvez aussi vous <strong>déconnecter</strong> dans l’app (écran d’ajout de store ou Paramètres)
+                sans supprimer le compte. Les données cloud restent jusqu’à une demande de suppression (étape 3).
             </p>
         </div>
-        
-        <h2>Données partagées avec des tiers</h2>
-        
-        <p>
-            <strong>Google AdMob :</strong> Si vous avez utilisé l'application, Google AdMob peut avoir collecté 
-            des données anonymes pour les publicités. Ces données sont gérées selon la 
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politique de confidentialité de Google</a>.
-        </p>
-        
-        <p>
-            <strong>Important :</strong> Nous n'avons aucun contrôle sur les données collectées par Google AdMob. 
-            Pour supprimer ces données, vous devez contacter Google directement ou utiliser les paramètres de votre compte Google.
-        </p>
-        
-        <h2>Confirmation de suppression</h2>
-        
-        <p>
-            Après avoir désinstallé l'application ou réinitialisé ses données, vos données locales 
-            sont supprimées immédiatement. Pour les données liées aux push / Pro (tokens Firebase, commentaires sync, memberships),
-            contactez-nous par e-mail pour demander leur suppression côté cloud.
-        </p>
         
         <div class="contact-info">
-            <h3>Besoin d'aide ?</h3>
+            <h3>Besoin d’aide ?</h3>
             <p>
-                Si vous avez des questions concernant la suppression de vos données ou si vous rencontrez 
-                des difficultés, n'hésitez pas à nous contacter :
-            </p>
-            <p>
-                <strong>Email :</strong> <a href="mailto:sslaouane@gmail.com">Me contacter</a><br>
-                <strong>Boutique :</strong> <a href="https://taghazit.com" target="_blank" rel="noopener">taghazit.com</a>
+                <strong>Email :</strong> <a href="mailto:sslaouane@gmail.com">sslaouane@gmail.com</a><br>
+                <strong>Boutique :</strong> <a href="https://taghazit.com" target="_blank" rel="noopener">taghazit.com</a><br>
+                <strong>Confidentialité :</strong> <a href="privacy-policy.html">politique de confidentialité</a>
             </p>
         </div>
         
         <hr style="margin: 40px 0; border: none; border-top: 1px solid #ddd;">
         
         <p style="text-align: center; color: #777; font-size: 0.9em;">
-            <strong>Note importante :</strong> Cette page concerne l'application <strong>WooNotif</strong>
-            (WooCommerce, Shopify, Wix). Voir aussi la <a href="privacy-policy.html">politique de confidentialité</a>
-            et l’<a href="index.html">accueil</a>.
+            Dernière mise à jour : 24 octobre 2026 ·
+            <a href="index.html">Accueil</a> ·
+            <a href="privacy-policy.html">Confidentialité</a>
         </p>
     </div>
 </body>
 </html>
-
